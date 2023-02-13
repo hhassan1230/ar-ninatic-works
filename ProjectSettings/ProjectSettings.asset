@@ -156,6 +156,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.DoubleEye.arninaticworks
+    iPhone: com.DoubleEye.arninaticworks
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -553,8 +554,8 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: 
-  locationUsageDescription: 
+  cameraUsageDescription: Lightship ARDK
+  locationUsageDescription: Lightship ARDK
   microphoneUsageDescription: 
   bluetoothUsageDescription: 
   switchNMETAOverride: 
