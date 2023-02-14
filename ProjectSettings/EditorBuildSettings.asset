@@ -9,5 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Placements/Placements.unity
     guid: d5cb32ed7b7c2429c89037debc93b7e6
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c634718c7064443cc9a23a6c92de9b13,
+      type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 20ad32da99be94bdf8957c81ef90fb0f, type: 2}
