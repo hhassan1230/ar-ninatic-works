@@ -3,16 +3,26 @@ using UnityEngine;
 
 //These tell our project to use pieces from the Lightship ARDK
 using Niantic.ARDK.AR;
+using Niantic.ARDK.AR.HitTest;
 using Niantic.ARDK.AR.ARSessionEventArgs;
 using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Input.Legacy;
 using System.Numerics;
+using Niantic.ARDK.Networking;
 
 //Define our main class
-public class BallThrow : MonoBehaviour
+public class SceneManager : MonoBehaviour
 {
-    //Variables we'll need to reference other objects in our game
-    public GameObject _ballPrefab;  //This will store the Ball Prefab we created earlier, so we can spawn a new Ball whenever we want
+    public bool statuePlaced = false;
+
+    //private GameObject _preview;
+    //private UnityEngine.Vector3 target;
+    //float _speed = 1.0f;
+    //public GameObject _statuePreview;
+
+    private RaycastHit rayHit;
+    public GameObject _statuePrefab;
+
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
 
@@ -21,11 +31,20 @@ public class BallThrow : MonoBehaviour
     {
         //ARSessionFactory helps create our AR Session. Here, we're telling our 'ARSessionFactory' to listen to when a new ARSession is created, then call an 'OnSessionInitialized' function when we get notified of one being created
         ARSessionFactory.SessionInitialized += OnSessionInitialized;
+        statuePlaced = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        // STATUE PREVIEW HOLOGRAM
+        /*if (statuePlaced != true)
+        {
+            StatuePreview();
+        }
+        */
+
         //If there is no touch, we're not going to do anything
         if (PlatformAgnosticInput.touchCount <= 0)
         {
@@ -36,8 +55,8 @@ public class BallThrow : MonoBehaviour
         var touch = PlatformAgnosticInput.GetTouch(0);
         if (touch.phase == TouchPhase.Began)
         {
-            TouchBegan(touch);
-        }
+                TouchBegan(touch);
+        }  
     }
 
     //This function will be called when a new AR Session has been created, as we instructed our 'ARSessionFactory' earlier
@@ -53,15 +72,39 @@ public class BallThrow : MonoBehaviour
     //This function will be called when the player touches the screen. For us, we'll have this trigger the shooting of our ball from where we touch.
     private void TouchBegan(Touch touch)
     {
-        //Let's spawn a new ball to bounce around our space
-        GameObject newBall = Instantiate(_ballPrefab);  //Spawn a new ball from our Ball Prefab
-        newBall.transform.rotation = UnityEngine.Quaternion.Euler(new UnityEngine.Vector3(0.0f, 0.0f, 0.0f));   //Set the rotation of our new Ball
-        newBall.transform.position = _mainCamera.transform.position + _mainCamera.transform.forward;    //Set the position of our new Ball to just in front of our Main Camera
+        if(statuePlaced == true)
+        {
+            return;
+        }
 
-        //Add velocity to our Ball, here we're telling the game to put Force behind the Ball in the direction Forward from our Camera (so, straight ahead)
-        Rigidbody rigbod = newBall.GetComponent<Rigidbody>();
-        rigbod.velocity = new UnityEngine.Vector3(0f, 0f, 0f);
-        float force = 300.0f;
-        rigbod.AddForce(_mainCamera.transform.forward * force);
+        //Spawn statue.
+        if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out rayHit, 4.0f))
+        {
+            //Destroy(_preview);
+
+            GameObject statue = Instantiate(_statuePrefab, rayHit.point, transform.rotation);
+            statuePlaced = true;
+        }
     }
+
+     /*private void StatuePreview()
+     {
+        if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out rayHit, 4.0f))
+         {
+            target += rayHit.point;
+
+            if (_preview == null)
+            {
+                _preview = Instantiate(_statuePreview, rayHit.point, transform.rotation);
+            }
+
+            else
+            {
+                float step = _speed * Time.deltaTime;
+                _preview.transform.position = UnityEngine.Vector3.MoveTowards(_preview.transform.position, target, step);
+            }
+         }
+     }
+     */
+    
 }
