@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BlueGoal
   - RedGoal
+  - key
   layers:
   - Default
   - TransparentFX
