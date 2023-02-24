@@ -734,4 +734,6 @@ MonoBehaviour:
   statuePlaced: 0
   _statuePrefab: {fileID: 2615881227472552954, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
     type: 3}
+  keyParticles: {fileID: 8309762890827458867, guid: 263f3005a200841628972980e1bab987,
+    type: 3}
   _mainCamera: {fileID: 1382766801}

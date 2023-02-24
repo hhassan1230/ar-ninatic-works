@@ -22,7 +22,8 @@ public class SceneManager : MonoBehaviour
 
     private RaycastHit rayHit;
     public GameObject _statuePrefab;
-
+    public ParticleSystem keyParticles;
+    
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
 
@@ -67,6 +68,14 @@ public class SceneManager : MonoBehaviour
 
         //Here we're saving our AR Session to our '_ARsession' variable, along with any arguments our session contains
         _ARsession = args.Session;
+    }
+
+    public void KeyUnlock(GameObject KeyObj)
+    {
+        Debug.Log("Triggered by Key");
+        
+        keyParticles.Play();
+        Destroy(KeyObj);
     }
 
     //This function will be called when the player touches the screen. For us, we'll have this trigger the shooting of our ball from where we touch.

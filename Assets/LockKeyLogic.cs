@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class LockKeyLogic : MonoBehaviour
 {
-    public ParticleSystem keyParticles;
+    public SceneManager _SceneManager;
+     
 
     // Start is called before the first frame update
     void Start()
@@ -15,12 +16,11 @@ public class LockKeyLogic : MonoBehaviour
     
     void OnCollisionEnter(Collision collision)
     {
+        
         //Check to see if the tag on the collider is equal to Enemy
         if (collision.gameObject.tag == "key")
         {
-            Debug.Log("Triggered by Key");
-            keyParticles.Play();
-            Destroy(collision.gameObject);
+            _SceneManager.KeyUnlock(collision.gameObject);
         }
     }
 
