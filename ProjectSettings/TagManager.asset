@@ -8,6 +8,7 @@ TagManager:
   - RedGoal
   - key
   - lock
+  - SceneManager
   layers:
   - Default
   - TransparentFX

@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class LockKeyLogic : MonoBehaviour
 {
-    public SceneManager _SceneManager;
+    private SceneManager _SceneManager;
      
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _SceneManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>();   
     }
     
     void OnCollisionEnter(Collision collision)

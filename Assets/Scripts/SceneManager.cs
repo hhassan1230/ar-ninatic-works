@@ -15,6 +15,8 @@ public class SceneManager : MonoBehaviour
 {
     public bool statuePlaced = false;
 
+    private GameObject statue;
+
     //private GameObject _preview;
     //private UnityEngine.Vector3 target;
     //float _speed = 1.0f;
@@ -22,7 +24,7 @@ public class SceneManager : MonoBehaviour
 
     private RaycastHit rayHit;
     public GameObject _statuePrefab;
-    public ParticleSystem keyParticles;
+    private ParticleSystem keyParticles;
     
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
@@ -73,8 +75,13 @@ public class SceneManager : MonoBehaviour
     public void KeyUnlock(GameObject KeyObj)
     {
         Debug.Log("Triggered by Key");
-        
-        keyParticles.Play();
+
+        if(statue != null)
+        {
+            keyParticles = statue.GetComponentInChildren<ParticleSystem>();
+            keyParticles.Play();
+        }
+
         Destroy(KeyObj);
     }
 
@@ -91,8 +98,8 @@ public class SceneManager : MonoBehaviour
         {
             //Destroy(_preview);
 
-            GameObject statue = Instantiate(_statuePrefab, rayHit.point, transform.rotation);
-            statuePlaced = true;
+           statue = Instantiate(_statuePrefab, rayHit.point, transform.rotation);
+           statuePlaced = true;
         }
     }
 
