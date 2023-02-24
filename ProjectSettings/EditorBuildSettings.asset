@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Placements/Placements.unity
+  - enabled: 0
+    path: Assets/Scenes/Placements.unity
     guid: d5cb32ed7b7c2429c89037debc93b7e6
+  - enabled: 0
+    path: Assets/Scenes/GameLogic.unity
+    guid: 1fc71ec68de034a0aaeedd7cddcbdddb
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: b72eb5acf19f84426891ee43e32843aa
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c634718c7064443cc9a23a6c92de9b13,
       type: 2}

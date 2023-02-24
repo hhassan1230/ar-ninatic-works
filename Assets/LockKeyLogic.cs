@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LockKeyLogic : MonoBehaviour
 {
+    public ParticleSystem keyParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,8 @@ public class LockKeyLogic : MonoBehaviour
         if (collision.gameObject.tag == "key")
         {
             Debug.Log("Triggered by Key");
+            keyParticles.Play();
+            Destroy(collision.gameObject);
         }
     }
 
