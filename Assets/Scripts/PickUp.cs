@@ -6,6 +6,7 @@ public class PickUp : MonoBehaviour
 {
     private RaycastHit rayHit;
     public float rayLength = 3.0f;
+    public Transform pickupLoc;
    
 
     private void Update()
@@ -19,7 +20,7 @@ public class PickUp : MonoBehaviour
             {
                 if(rayHit.collider.gameObject.tag == "key")
                 {
-
+                rayHit.collider.transform.parent = pickupLoc;
                 }
             }
 

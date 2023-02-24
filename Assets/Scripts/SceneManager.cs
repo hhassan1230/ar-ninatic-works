@@ -16,6 +16,7 @@ public class SceneManager : MonoBehaviour
     public bool statuePlaced = false;
 
     private GameObject statue;
+    private GameObject key;
 
     //private GameObject _preview;
     //private UnityEngine.Vector3 target;
@@ -24,7 +25,7 @@ public class SceneManager : MonoBehaviour
 
     private RaycastHit rayHit;
     public GameObject _statuePrefab;
-    private ParticleSystem keyParticles;
+    public GameObject _keyPrefab;
     
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
@@ -40,13 +41,6 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // STATUE PREVIEW HOLOGRAM
-        /*if (statuePlaced != true)
-        {
-            StatuePreview();
-        }
-        */
 
         //If there is no touch, we're not going to do anything
         if (PlatformAgnosticInput.touchCount <= 0)
@@ -72,19 +66,6 @@ public class SceneManager : MonoBehaviour
         _ARsession = args.Session;
     }
 
-    public void KeyUnlock(GameObject KeyObj)
-    {
-        Debug.Log("Triggered by Key");
-
-        if(statue != null)
-        {
-            keyParticles = statue.GetComponentInChildren<ParticleSystem>();
-            keyParticles.Play();
-        }
-
-        Destroy(KeyObj);
-    }
-
     //This function will be called when the player touches the screen. For us, we'll have this trigger the shooting of our ball from where we touch.
     private void TouchBegan(Touch touch)
     {
@@ -96,9 +77,10 @@ public class SceneManager : MonoBehaviour
         //Spawn statue.
         if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out rayHit, 4.0f))
         {
-            //Destroy(_preview);
 
            statue = Instantiate(_statuePrefab, rayHit.point, transform.rotation);
+           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(0.5f, -1.5f, 1.0f), transform.rotation);
+           
            statuePlaced = true;
         }
     }
