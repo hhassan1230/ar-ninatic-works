@@ -197,10 +197,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7963815754292762357, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
         type: 3}
+      propertyPath: _voxelSize
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963815754292762357, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
+        type: 3}
       propertyPath: _meshPrefab
       value: 
       objectReference: {fileID: 4501392110370713671, guid: 99a6454115a034b2e9add187cf73f9eb,
         type: 3}
+    - target: {fileID: 7963815754292762357, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
+        type: 3}
+      propertyPath: _meshingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963815754292762357, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
+        type: 3}
+      propertyPath: _meshingRangeMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963815754292762357, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
+        type: 3}
+      propertyPath: _targetBlockSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7963815754292762357, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
+        type: 3}
+      propertyPath: UseCustomMeshingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7963815754292762357, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
         type: 3}
       propertyPath: _useInvisibleMaterial
@@ -226,7 +251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &309211481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -733,6 +758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statuePlaced: 0
+  keyPlaced: 0
   _statuePrefab: {fileID: 2615881227472552954, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
     type: 3}
   _keyPrefab: {fileID: 2610937432960401339, guid: fd86951434f9c4dd590ff77b8c105de2,
