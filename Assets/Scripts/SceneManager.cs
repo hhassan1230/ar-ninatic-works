@@ -14,9 +14,12 @@ using Niantic.ARDK.Networking;
 public class SceneManager : MonoBehaviour
 {
     public bool statuePlaced = false;
-
+    public bool keyPlaced = false;
+   
     private GameObject statue;
     private GameObject key;
+    private GameObject lightForest;
+
 
     //private GameObject _preview;
     //private UnityEngine.Vector3 target;
@@ -26,6 +29,7 @@ public class SceneManager : MonoBehaviour
     private RaycastHit rayHit;
     public GameObject _statuePrefab;
     public GameObject _keyPrefab;
+    public GameObject _lightForestPrefab;
     
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
@@ -41,8 +45,19 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (keyPlaced == true)
+        {
+            if (lightForest != null)
+            {
+                return;
+            }
+            else
+            {
+                lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
+            }
+        }
 
-        //If there is no touch, we're not going to do anything
+            //If there is no touch, we're not going to do anything
         if (PlatformAgnosticInput.touchCount <= 0)
         {
             return;
@@ -53,11 +68,11 @@ public class SceneManager : MonoBehaviour
         if (touch.phase == TouchPhase.Began)
         {
                 TouchBegan(touch);
-        }  
+        }
     }
 
-    //This function will be called when a new AR Session has been created, as we instructed our 'ARSessionFactory' earlier
-    private void OnSessionInitialized(AnyARSessionInitializedArgs args)
+        //This function will be called when a new AR Session has been created, as we instructed our 'ARSessionFactory' earlier
+        private void OnSessionInitialized(AnyARSessionInitializedArgs args)
     {
         //Now that we've initiated our session, we don't need to do this again so we can remove the callback
         ARSessionFactory.SessionInitialized -= OnSessionInitialized;
@@ -80,7 +95,7 @@ public class SceneManager : MonoBehaviour
 
            statue = Instantiate(_statuePrefab, rayHit.point, transform.rotation);
            key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(0.5f, -1.5f, 1.0f), transform.rotation);
-           
+ 
            statuePlaced = true;
         }
     }
