@@ -143,7 +143,7 @@ PrefabInstance:
     - target: {fileID: 4544129020768840141, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4544129020768840141, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
         type: 3}
@@ -422,7 +422,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1287964039
 GameObject:
@@ -744,7 +744,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1693480852
 MonoBehaviour:
@@ -764,7 +764,7 @@ MonoBehaviour:
     type: 3}
   _keyPrefab: {fileID: 2610937432960401339, guid: fd86951434f9c4dd590ff77b8c105de2,
     type: 3}
-  _lightForestPrefab: {fileID: 3342449390919617520, guid: 692e62a46398b4134b3effdc2caf5de2,
+  _lightForestPrefab: {fileID: 4254734872920269435, guid: fe362d10f97e44e33a3129c796473350,
     type: 3}
   _forestMusic: {fileID: 8300000, guid: 86aa2bd0c5b7745328f395826ca28735, type: 3}
   _mainCamera: {fileID: 1382766801}

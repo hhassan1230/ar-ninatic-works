@@ -6,7 +6,7 @@ using UnityEngine;
 public class LockKeyLogic : MonoBehaviour
 {
     private SceneManager _sceneManager;
-    public ParticleSystem keyParticles;
+    public GameObject keyParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class LockKeyLogic : MonoBehaviour
         {
             _sceneManager.keyPlaced = true;
             print("I'm colliding with " + collision.gameObject.name);
-            keyParticles.Play();
+            keyParticles.SetActive(true);
             Destroy(collision.gameObject);
         }
     }
