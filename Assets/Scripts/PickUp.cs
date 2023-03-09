@@ -22,7 +22,12 @@ public class PickUp : MonoBehaviour
                 {
                 rayHit.collider.transform.parent = pickupLoc;
                 }
+
+            if (rayHit.collider.gameObject.tag == "Flower")
+            {
+                rayHit.collider.transform.parent = pickupLoc;
             }
+        }
 
         Debug.DrawRay(transform.position, transform.forward, Color.blue);
             

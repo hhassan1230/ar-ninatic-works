@@ -711,7 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6847207a0cd684f4fa6fc2c03a3953f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 6
+  rayLength: 4
   pickupLoc: {fileID: 1287964040}
 --- !u!1 &1693480850
 GameObject:
@@ -767,6 +767,8 @@ MonoBehaviour:
   _lightForestPrefab: {fileID: 4254734872920269435, guid: fe362d10f97e44e33a3129c796473350,
     type: 3}
   _forestMusic: {fileID: 8300000, guid: 86aa2bd0c5b7745328f395826ca28735, type: 3}
+  flowerPrefab: {fileID: 4698214109222144956, guid: c5a29ddec93284a8296a2029c9843503,
+    type: 3}
   _mainCamera: {fileID: 1382766801}
 --- !u!82 &1693480853
 AudioSource:

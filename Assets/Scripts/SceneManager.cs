@@ -19,6 +19,7 @@ public class SceneManager : MonoBehaviour
     private GameObject statue;
     private GameObject key;
     private GameObject lightForest;
+    private GameObject flower;
 
 
     //private GameObject _preview;
@@ -31,6 +32,7 @@ public class SceneManager : MonoBehaviour
     public GameObject _keyPrefab;
     public GameObject _lightForestPrefab;
     public AudioClip _forestMusic;
+    public GameObject flowerPrefab;
     
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
@@ -55,6 +57,7 @@ public class SceneManager : MonoBehaviour
             else
             {
                 lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
+                flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(-0.7f, -1.3f, 1.0f), transform.rotation);
                 PlayMusic();
             }
         }
@@ -104,7 +107,7 @@ public class SceneManager : MonoBehaviour
         {
 
            statue = Instantiate(_statuePrefab, rayHit.point, transform.rotation);
-           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(0.5f, -1.5f, 1.0f), transform.rotation);
+           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(0.7f, -1.3f, 1.0f), transform.rotation);
  
            statuePlaced = true;
         }
