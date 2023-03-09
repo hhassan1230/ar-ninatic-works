@@ -8,6 +8,8 @@ public class GodOfferingLogic : MonoBehaviour
     public GameObject godParticles;
     public GameObject newFlowerObj;
     public Transform flowerLocPos;
+    public GameObject godText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,8 @@ public class GodOfferingLogic : MonoBehaviour
             godParticles.SetActive(true);
             Destroy(collision.gameObject);
             Instantiate(newFlowerObj, flowerLocPos.position, flowerLocPos.rotation);
+
+            godText.SetActive(true);
         }
     }
 }
