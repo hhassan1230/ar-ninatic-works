@@ -9,6 +9,7 @@ TagManager:
   - key
   - lock
   - SceneManager
+  - Flower
   layers:
   - Default
   - TransparentFX
