@@ -7,6 +7,8 @@ public class LockKeyLogic : MonoBehaviour
 {
     private SceneManager _sceneManager;
     public GameObject keyParticles;
+    public GameObject placeKeyText;
+    public GameObject placeFlowerText;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,8 @@ public class LockKeyLogic : MonoBehaviour
             print("I'm colliding with " + collision.gameObject.name);
             keyParticles.SetActive(true);
             Destroy(collision.gameObject);
+            placeKeyText.SetActive(false);
+            placeFlowerText.SetActive(true);
         }
     }
 }
