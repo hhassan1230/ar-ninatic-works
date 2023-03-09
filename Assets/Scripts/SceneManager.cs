@@ -30,6 +30,7 @@ public class SceneManager : MonoBehaviour
     public GameObject _statuePrefab;
     public GameObject _keyPrefab;
     public GameObject _lightForestPrefab;
+    public AudioClip _forestMusic;
     
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
@@ -54,6 +55,7 @@ public class SceneManager : MonoBehaviour
             else
             {
                 lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
+                PlayMusic();
             }
         }
 
@@ -71,7 +73,15 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-        //This function will be called when a new AR Session has been created, as we instructed our 'ARSessionFactory' earlier
+    private void PlayMusic()
+    {
+        // Play Music
+        AudioSource _audioSource = GetComponent<AudioSource>();
+        _audioSource.clip = _forestMusic;
+        _audioSource.Play();
+    }
+
+    //This function will be called when a new AR Session has been created, as we instructed our 'ARSessionFactory' earlier
         private void OnSessionInitialized(AnyARSessionInitializedArgs args)
     {
         //Now that we've initiated our session, we don't need to do this again so we can remove the callback
