@@ -711,7 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6847207a0cd684f4fa6fc2c03a3953f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 4
+  rayLength: 3
   pickupLoc: {fileID: 1287964040}
 --- !u!1 &1693480850
 GameObject:

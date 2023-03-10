@@ -57,7 +57,7 @@ public class SceneManager : MonoBehaviour
             else
             {
                 lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
-                flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(-1.0f, -1.3f, 1.0f), transform.rotation);
+                flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(-2.0f, -1.3f, 1.0f), transform.rotation);
                 PlayMusic();
             }
         }
@@ -105,9 +105,10 @@ public class SceneManager : MonoBehaviour
         //Spawn statue.
         if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out rayHit, 4.0f))
         {
-
            statue = Instantiate(_statuePrefab, rayHit.point, transform.rotation);
-           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(1f, -1.3f, 1.0f), transform.rotation);
+           statue.transform.Rotate(0, 180, 0);
+
+           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(2f, -1.3f, 1.0f), transform.rotation);
  
            statuePlaced = true;
         }
