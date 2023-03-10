@@ -1,5 +1,7 @@
 //Standard Unity/C# functionality
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 //These tell our project to use pieces from the Lightship ARDK
 using Niantic.ARDK.AR;
@@ -9,6 +11,7 @@ using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Input.Legacy;
 using System.Numerics;
 using Niantic.ARDK.Networking;
+using UnityEngine.SceneManagement;
 
 //Define our main class
 public class SceneManager : MonoBehaviour
@@ -114,24 +117,36 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-     /*private void StatuePreview()
-     {
-        if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out rayHit, 4.0f))
-         {
-            target += rayHit.point;
+    public void ReloadDemo()
+    {
+        StartCoroutine(WaitAndReloadGame());
+    }
 
-            if (_preview == null)
-            {
-                _preview = Instantiate(_statuePreview, rayHit.point, transform.rotation);
-            }
+    IEnumerator WaitAndReloadGame()
+    {
+        // suspend execution for 5 seconds
+        yield return new WaitForSeconds(45);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
+    }
 
-            else
-            {
-                float step = _speed * Time.deltaTime;
-                _preview.transform.position = UnityEngine.Vector3.MoveTowards(_preview.transform.position, target, step);
-            }
-         }
-     }
-     */
-    
+    /*private void StatuePreview()
+    {
+       if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out rayHit, 4.0f))
+        {
+           target += rayHit.point;
+
+           if (_preview == null)
+           {
+               _preview = Instantiate(_statuePreview, rayHit.point, transform.rotation);
+           }
+
+           else
+           {
+               float step = _speed * Time.deltaTime;
+               _preview.transform.position = UnityEngine.Vector3.MoveTowards(_preview.transform.position, target, step);
+           }
+        }
+    }
+    */
+
 }

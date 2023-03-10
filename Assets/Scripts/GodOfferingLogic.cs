@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GodOfferingLogic : MonoBehaviour
 {
     private SceneManager _sceneManager;
@@ -30,6 +31,10 @@ public class GodOfferingLogic : MonoBehaviour
             Instantiate(newFlowerObj, flowerLocPos.position, flowerLocPos.rotation);
 
             godText.SetActive(true);
+
+            _sceneManager.ReloadDemo();
+
+
         }
     }
 }
