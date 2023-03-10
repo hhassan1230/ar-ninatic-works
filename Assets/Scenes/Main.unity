@@ -251,7 +251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &309211481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -767,6 +767,9 @@ MonoBehaviour:
   _lightForestPrefab: {fileID: 4254734872920269435, guid: fe362d10f97e44e33a3129c796473350,
     type: 3}
   _forestMusic: {fileID: 8300000, guid: 86aa2bd0c5b7745328f395826ca28735, type: 3}
+  _keyPlacementSound: {fileID: 8300000, guid: 06656c43ecdee4413b821140b14994cd, type: 3}
+  _flowerPlacementSound: {fileID: 8300000, guid: 1aaa771b151b3431da21146c60369d9d,
+    type: 3}
   flowerPrefab: {fileID: 4698214109222144956, guid: c5a29ddec93284a8296a2029c9843503,
     type: 3}
   _mainCamera: {fileID: 1382766801}

@@ -23,6 +23,7 @@ public class SceneManager : MonoBehaviour
     private GameObject key;
     private GameObject lightForest;
     private GameObject flower;
+    private AudioSource _audioSource;
 
 
     //private GameObject _preview;
@@ -35,6 +36,8 @@ public class SceneManager : MonoBehaviour
     public GameObject _keyPrefab;
     public GameObject _lightForestPrefab;
     public AudioClip _forestMusic;
+    public AudioClip _keyPlacementSound;
+    public AudioClip _flowerPlacementSound;
     public GameObject flowerPrefab;
     
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
@@ -46,6 +49,7 @@ public class SceneManager : MonoBehaviour
         //ARSessionFactory helps create our AR Session. Here, we're telling our 'ARSessionFactory' to listen to when a new ARSession is created, then call an 'OnSessionInitialized' function when we get notified of one being created
         ARSessionFactory.SessionInitialized += OnSessionInitialized;
         statuePlaced = false;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,8 +63,9 @@ public class SceneManager : MonoBehaviour
             }
             else
             {
+                _audioSource.PlayOneShot(_keyPlacementSound);
                 lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
-                flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(-2.0f, -1.3f, 1.0f), transform.rotation);
+                flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(0, 0, 1.0f), transform.rotation);
                 PlayMusic();
             }
         }
@@ -81,10 +86,12 @@ public class SceneManager : MonoBehaviour
 
     private void PlayMusic()
     {
-        // Play Music
-        AudioSource _audioSource = GetComponent<AudioSource>();
-        _audioSource.clip = _forestMusic;
         _audioSource.Play();
+    }
+
+    public void PlayFlowerSound()
+    {
+        _audioSource.PlayOneShot(_flowerPlacementSound);
     }
 
     //This function will be called when a new AR Session has been created, as we instructed our 'ARSessionFactory' earlier
@@ -111,7 +118,7 @@ public class SceneManager : MonoBehaviour
            statue = Instantiate(_statuePrefab, rayHit.point, transform.rotation);
            statue.transform.Rotate(0, 180, 0);
 
-           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(2f, -1.3f, 1.0f), transform.rotation);
+           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(3f, -1f, 1.0f), transform.rotation);
  
            statuePlaced = true;
         }

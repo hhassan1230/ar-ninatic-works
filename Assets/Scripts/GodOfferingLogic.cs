@@ -10,6 +10,7 @@ public class GodOfferingLogic : MonoBehaviour
     public GameObject newFlowerObj;
     public Transform flowerLocPos;
     public GameObject godText;
+    private GameObject clonedFlower;
 
 
     // Start is called before the first frame update
@@ -28,8 +29,14 @@ public class GodOfferingLogic : MonoBehaviour
             print("I'm colliding with " + collision.gameObject.name);
             godParticles.SetActive(true);
             Destroy(collision.gameObject);
-            Instantiate(newFlowerObj, flowerLocPos.position, flowerLocPos.rotation);
+            _sceneManager.PlayFlowerSound();
 
+            clonedFlower = Instantiate(newFlowerObj, flowerLocPos.position, flowerLocPos.rotation);
+            clonedFlower.GetComponent<Collider>().enabled = false;
+
+
+           
+   
             godText.SetActive(true);
 
             _sceneManager.ReloadDemo();
