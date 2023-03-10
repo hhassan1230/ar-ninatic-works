@@ -10,12 +10,6 @@ public class LevelChangeLogic : MonoBehaviour
     public GameObject TitleText;
     public GameObject ARInfoText;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void SwapTitleCards()
     {
         TitleText.SetActive(false);
@@ -34,5 +28,17 @@ public class LevelChangeLogic : MonoBehaviour
     {
         // SceneManager.LoadScene("OtherSceneName", LoadSceneMode.Additive);
         UnityEngine.SceneManagement.SceneManager.LoadScene(levelName);
+    }
+    
+    public void ReloadDemo() 
+    {
+        StartCoroutine(WaitAndReloadGame());
+    }
+    
+    IEnumerator WaitAndReloadGame()
+    {
+        // suspend execution for 5 seconds
+        yield return new WaitForSeconds(45);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
     }
 }
