@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R38M20HTACZ",
         "name": "com.DoubleEye.arninaticworks",
-        "processId": 16653,
+        "processId": 19163,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -30,6 +30,30 @@
             "deviceId": "R38M20HTACZ",
             "name": "com.DoubleEye.arninaticworks",
             "processId": 16653,
+            "exited": false
+        },
+        {
+            "deviceId": "R38M20HTACZ",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 17037,
+            "exited": false
+        },
+        {
+            "deviceId": "R38M20HTACZ",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 29999,
+            "exited": false
+        },
+        {
+            "deviceId": "R38M20HTACZ",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 2769,
+            "exited": false
+        },
+        {
+            "deviceId": "R38M20HTACZ",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 19163,
             "exited": false
         }
     ],
