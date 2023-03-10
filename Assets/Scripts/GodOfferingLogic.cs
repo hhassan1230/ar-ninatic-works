@@ -33,10 +33,11 @@ public class GodOfferingLogic : MonoBehaviour
 
             clonedFlower = Instantiate(newFlowerObj, flowerLocPos.position, flowerLocPos.rotation);
             clonedFlower.GetComponent<Collider>().enabled = false;
+            clonedFlower.GetComponentInChildren<ParticleSystem>().Stop();
 
 
-           
-   
+
+
             godText.SetActive(true);
 
             _sceneManager.ReloadDemo();
