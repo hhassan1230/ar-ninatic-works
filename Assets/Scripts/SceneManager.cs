@@ -115,10 +115,10 @@ public class SceneManager : MonoBehaviour
         //Spawn statue.
         if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out rayHit, 4.0f))
         {
-           statue = Instantiate(_statuePrefab, rayHit.point + new UnityEngine.Vector3(0,-0.02f,0), transform.rotation);
-           statue.transform.LookAt(_mainCamera.transform);
+           statue = Instantiate(_statuePrefab, rayHit.point + new UnityEngine.Vector3(0,-0.01f,0), transform.rotation);
+           statue.transform.rotation = new UnityEngine.Quaternion(0, 180, 0,0);
 
-           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(1.2f, -1f, 1.0f), transform.rotation);
+           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(1f, -1f, 1.0f), transform.rotation);
  
            statuePlaced = true;
         }
