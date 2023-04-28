@@ -713,6 +713,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayLength: 1.25
   pickupLoc: {fileID: 1287964040}
+--- !u!114 &1579405953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7963815754292762357, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
+    type: 3}
+  m_PrefabInstance: {fileID: 27429330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03b458a9fbbf4cc18d8fd737e2a215e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1693480850
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +785,7 @@ MonoBehaviour:
   flowerPrefab: {fileID: 4698214109222144956, guid: c5a29ddec93284a8296a2029c9843503,
     type: 3}
   _mainCamera: {fileID: 1382766801}
-  _ARMeshManager: {fileID: 0}
+  _ARMeshManager: {fileID: 1579405953}
 --- !u!82 &1693480853
 AudioSource:
   m_ObjectHideFlags: 0

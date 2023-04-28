@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1394448663895393957
 Transform:
   m_ObjectHideFlags: 0
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 8637261686242756929}
   - component: {fileID: 1998952703243152028}
   m_Layer: 0
-  m_Name: Puzzle (1)
+  m_Name: Keyhole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -716,7 +716,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1deaf202b88bb490ba990c73df18d13b, type: 2}
+  - {fileID: 2100000, guid: 02e71e05ada4c45bba9bac8ad82d7b48, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -819,7 +819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 17fc4cd0e02606945bb089e9742a0b52, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0921806
+      value: 0.10400737
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 17fc4cd0e02606945bb089e9742a0b52, type: 3}
       propertyPath: m_LocalScale.y
@@ -1201,18 +1201,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7081885250255915179, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081885250255915179, guid: ca4292d644b861e498af096f83b7356e,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081885250255915179, guid: ca4292d644b861e498af096f83b7356e,
+        type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.5271424
+      value: 0.5815968
       objectReference: {fileID: 0}
     - target: {fileID: 7081885250255915179, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.17421682
+      value: 0.17007834
       objectReference: {fileID: 0}
     - target: {fileID: 7081885250255915179, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.8207547
+      value: 0.9245283
       objectReference: {fileID: 0}
     - target: {fileID: 8246386406080414762, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
@@ -1572,7 +1582,27 @@ PrefabInstance:
     - target: {fileID: 344286526070377106, guid: eac85d1d3d43c3542b9d76a0366e5d71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.052
+      value: 0.585
+      objectReference: {fileID: 0}
+    - target: {fileID: 344286526070377106, guid: eac85d1d3d43c3542b9d76a0366e5d71,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 344286526070377106, guid: eac85d1d3d43c3542b9d76a0366e5d71,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 344286526070377106, guid: eac85d1d3d43c3542b9d76a0366e5d71,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 344286526070377106, guid: eac85d1d3d43c3542b9d76a0366e5d71,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 344286526070377106, guid: eac85d1d3d43c3542b9d76a0366e5d71,
         type: 3}
@@ -1603,7 +1633,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f1114e2eeb8d4fde915a6e653b54e9f5, type: 2}
+      objectReference: {fileID: 2100000, guid: 4454fa22e55e650459a9fbc040d4434d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eac85d1d3d43c3542b9d76a0366e5d71, type: 3}
 --- !u!4 &7972502067922311515 stripped

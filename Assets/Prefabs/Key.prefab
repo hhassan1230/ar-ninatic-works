@@ -177,7 +177,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 02e71e05ada4c45bba9bac8ad82d7b48, type: 2}
+  - {fileID: 2100000, guid: 5e46403fc56774277851bb190ccaaccf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -214,17 +214,17 @@ PrefabInstance:
     - target: {fileID: 941003511220475983, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 941003511220475983, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 941003511220475983, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 941003511220475983, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
@@ -286,15 +286,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Feather aura
       objectReference: {fileID: 0}
+    - target: {fileID: 4140705972869738553, guid: ca4292d644b861e498af096f83b7356e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5469605286731880434, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
       propertyPath: looping
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5469605286731880434, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
       propertyPath: lengthInSec
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469605286731880434, guid: ca4292d644b861e498af096f83b7356e,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469605286731880434, guid: ca4292d644b861e498af096f83b7356e,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469605286731880434, guid: ca4292d644b861e498af096f83b7356e,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469605286731880434, guid: ca4292d644b861e498af096f83b7356e,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.5395603
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469605286731880434, guid: ca4292d644b861e498af096f83b7356e,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.86998516
       objectReference: {fileID: 0}
     - target: {fileID: 6215593283564780667, guid: ca4292d644b861e498af096f83b7356e,
         type: 3}
