@@ -209,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2615881227472552898}
   m_Layer: 0
-  m_Name: PandoraStatue_TestingPreview
+  m_Name: PandoraStatue_Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

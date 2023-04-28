@@ -5,13 +5,18 @@ using System.Collections.Generic;
 
 //These tell our project to use pieces from the Lightship ARDK
 using Niantic.ARDK.AR;
+using Niantic.ARDK.AR.Configuration;
+using Niantic.ARDK.AR.Mesh;
+using Niantic.ARDK.Utilities;
+using Niantic.ARDK.Utilities.Collections;
+using Niantic.ARDK.Utilities.Logging;
 using Niantic.ARDK.AR.HitTest;
 using Niantic.ARDK.AR.ARSessionEventArgs;
-using Niantic.ARDK.Utilities;
 using Niantic.ARDK.Utilities.Input.Legacy;
 using System.Numerics;
 using Niantic.ARDK.Networking;
 using UnityEngine.SceneManagement;
+using Niantic.ARDK.Extensions.Meshing;
 
 //Define our main class
 public class SceneManager : MonoBehaviour
@@ -42,6 +47,8 @@ public class SceneManager : MonoBehaviour
     
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
+
+    public ARMeshManager _ARMeshManager;
 
     // Start is called before the first frame update
     void Start()
@@ -121,6 +128,8 @@ public class SceneManager : MonoBehaviour
            key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(1f, -1f, 1.0f), transform.rotation);
  
            statuePlaced = true;
+
+           _ARMeshManager.UseInvisibleMaterial = true;
         }
     }
 
