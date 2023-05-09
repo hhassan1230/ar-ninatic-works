@@ -36,11 +36,9 @@ public class GodOfferingLogic : MonoBehaviour
             clonedFlower.GetComponentInChildren<ParticleSystem>().Stop();
 
 
-
-
             godText.SetActive(true);
 
-            _sceneManager.ReloadDemo();
+            //_sceneManager.ReloadDemo();
 
 
         }

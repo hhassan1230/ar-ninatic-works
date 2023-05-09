@@ -7,6 +7,7 @@ public class PickUp : MonoBehaviour
     private RaycastHit rayHit;
     public float rayLength = 3.0f;
     public Transform pickupLoc;
+    public SceneManager _sceneManagerRef;
    
 
     private void Update()
@@ -28,10 +29,11 @@ public class PickUp : MonoBehaviour
             {
                 rayHit.collider.transform.parent = pickupLoc;
                 rayHit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+                _sceneManagerRef.FlowerPickedUp();
             }
         }
 
         Debug.DrawRay(transform.position, transform.forward, Color.blue);
-            
+          
     }
 }

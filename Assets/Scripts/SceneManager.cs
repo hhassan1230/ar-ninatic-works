@@ -23,6 +23,9 @@ public class SceneManager : MonoBehaviour
 {
     public bool statuePlaced = false;
     public bool keyPlaced = false;
+    public bool flowerPickedUp = false;
+
+    public Collider endingCollider;
    
     private GameObject statue;
     private GameObject key;
@@ -44,7 +47,16 @@ public class SceneManager : MonoBehaviour
     public AudioClip _keyPlacementSound;
     public AudioClip _flowerPlacementSound;
     public GameObject flowerPrefab;
-    
+    public GameObject endGamePortal;
+
+    // LECTURN TEXT
+    public GameObject defaultText;
+    public GameObject findAndPlaceKeyText;
+    public GameObject mayYourJourney;
+    public GameObject findAnOffering;
+    public GameObject chooseYourDeityText;
+    public GameObject endingText;
+
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
 
@@ -53,6 +65,8 @@ public class SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        endingCollider.enabled = false;
+
         //ARSessionFactory helps create our AR Session. Here, we're telling our 'ARSessionFactory' to listen to when a new ARSession is created, then call an 'OnSessionInitialized' function when we get notified of one being created
         ARSessionFactory.SessionInitialized += OnSessionInitialized;
         statuePlaced = false;
@@ -62,22 +76,7 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (keyPlaced == true)
-        {
-            if (lightForest != null)
-            {
-                return;
-            }
-            else
-            {
-                _audioSource.PlayOneShot(_keyPlacementSound);
-                lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
-                flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(0, 0, 1.0f), transform.rotation);
-                PlayMusic();
-            }
-        }
-
-            //If there is no touch, we're not going to do anything
+        //If there is no touch, we're not going to do anything
         if (PlatformAgnosticInput.touchCount <= 0)
         {
             return;
@@ -89,6 +88,11 @@ public class SceneManager : MonoBehaviour
         {
                 TouchBegan(touch);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        EndGameSequence();
     }
 
     private void PlayMusic()
@@ -122,14 +126,7 @@ public class SceneManager : MonoBehaviour
         //Spawn statue.
         if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out rayHit, 4.0f))
         {
-           statue = Instantiate(_statuePrefab, rayHit.point + new UnityEngine.Vector3(0,-0.01f,0), transform.rotation);
-           statue.transform.rotation = new UnityEngine.Quaternion(0, 180, 0,0);
-
-           key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(1f, -1f, 1.0f), transform.rotation);
- 
-           statuePlaced = true;
-
-           _ARMeshManager.UseInvisibleMaterial = true;
+            PlaceStatue();
         }
     }
 
@@ -138,31 +135,78 @@ public class SceneManager : MonoBehaviour
         StartCoroutine(WaitAndReloadGame());
     }
 
+    void PlaceStatue()
+    {
+        statue = Instantiate(_statuePrefab, rayHit.point + new UnityEngine.Vector3(0, -0.01f, 0), transform.rotation);
+        statue.transform.rotation = new UnityEngine.Quaternion(0, 180, 0, 0);
+
+        defaultText.SetActive(false);
+        findAndPlaceKeyText.SetActive(true);
+
+        key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(1f, -1f, 1.0f), transform.rotation);
+        statuePlaced = true;
+
+        _ARMeshManager.UseInvisibleMaterial = true;
+    }
+
+    public void KeyPlaced()
+    {
+        keyPlaced = true;
+        findAndPlaceKeyText.SetActive(false);
+        _audioSource.PlayOneShot(_keyPlacementSound);
+
+        //PARTICLES MOVE TO LECTURN
+
+        StartCoroutine(MayYourJourneyAndFindAnOffering());
+    }
+
+    IEnumerator MayYourJourneyAndFindAnOffering()
+    {
+        yield return new WaitForSeconds(5);
+        mayYourJourney.SetActive(true);
+        yield return new WaitForSeconds(8);
+        mayYourJourney.SetActive(false);
+        findAnOffering.SetActive(true);
+        yield return new WaitForSeconds(1);
+    }
+
+    public void FlowerPickedUp()
+    {
+        findAnOffering.SetActive(false);
+        flowerPickedUp = true;
+        // PARTICLE SYSTEM FUNCTION PLAYS AND MOVES TO LECTURN
+        StartCoroutine(ChooseYourDeityAndLightForestAppearance());
+    }
+
+    // ON TRIGGER ENTER FOR LECTURN
+    IEnumerator ChooseYourDeityAndLightForestAppearance()
+    {
+        chooseYourDeityText.SetActive(true);
+        yield return new WaitForSeconds(5);
+        lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
+        flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(0, 0, 1.0f), transform.rotation);
+        PlayMusic();
+    }
+
+    public void OfferingPlaced()
+    {
+        // PARTICLE SYSTEM PLAYS TO LECTURN
+        // LECTURN PARTICLES PLAY
+        endingText.SetActive(true);
+        endingCollider.enabled = true;
+    }
+
+    IEnumerator EndGameSequence()
+    {
+        yield return new WaitForSeconds(1);
+        statue.SetActive(false);
+        endGamePortal.SetActive(true);
+    }
+
     IEnumerator WaitAndReloadGame()
     {
         // suspend execution for 5 seconds
         yield return new WaitForSeconds(45);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
     }
-
-    /*private void StatuePreview()
-    {
-       if(Physics.Raycast(_mainCamera.transform.position, _mainCamera.transform.forward, out rayHit, 4.0f))
-        {
-           target += rayHit.point;
-
-           if (_preview == null)
-           {
-               _preview = Instantiate(_statuePreview, rayHit.point, transform.rotation);
-           }
-
-           else
-           {
-               float step = _speed * Time.deltaTime;
-               _preview.transform.position = UnityEngine.Vector3.MoveTowards(_preview.transform.position, target, step);
-           }
-        }
-    }
-    */
-
 }
