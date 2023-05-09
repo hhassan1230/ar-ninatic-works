@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     private RaycastHit rayHit;
-    public float rayLength = 3.0f;
+    public float rayLength = 1.0f;
     public Transform pickupLoc;
     public SceneManager _sceneManagerRef;
    
@@ -23,7 +23,11 @@ public class PickUp : MonoBehaviour
                 {
                 rayHit.collider.transform.parent = pickupLoc;
                 rayHit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
-                _sceneManagerRef.PlayItemPickUp();
+                if(_sceneManagerRef.keyPickedUp == false)
+                {
+                    _sceneManagerRef.PlayItemPickUp();
+                    _sceneManagerRef.keyPickedUp = true;
+                }
             }
 
             if (rayHit.collider.gameObject.tag == "Flower")

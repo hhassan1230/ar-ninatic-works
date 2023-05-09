@@ -251,7 +251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &309211481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -549,7 +549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382766799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -718,7 +718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6847207a0cd684f4fa6fc2c03a3953f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayLength: 1.25
+  rayLength: 0.8
   pickupLoc: {fileID: 1287964040}
   _sceneManagerRef: {fileID: 1693480852}
 --- !u!136 &1382766813
@@ -796,6 +796,7 @@ MonoBehaviour:
   particlesAreMoving: 0
   lecturnLoc: {fileID: 5479251589018787029}
   statuePlaced: 0
+  keyPickedUp: 0
   keyPlaced: 0
   flowerPickedUp: 0
   endingCollider: {fileID: 3364862390679680144}
@@ -1032,7 +1033,7 @@ PrefabInstance:
     - target: {fileID: 3504248281991722711, guid: 063e7dc9f8a0144c5b73e43bd4c34a28,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3504248281991722711, guid: 063e7dc9f8a0144c5b73e43bd4c34a28,
         type: 3}

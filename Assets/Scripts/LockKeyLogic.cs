@@ -21,7 +21,7 @@ public class LockKeyLogic : MonoBehaviour
         {
             keyParticles.SetActive(true);
             Destroy(collision.gameObject);
-            _sceneManager.PlayItemPickUp();
+            _sceneManager.KeyPlaced();
         }
     }
 }

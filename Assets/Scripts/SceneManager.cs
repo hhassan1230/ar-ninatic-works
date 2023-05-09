@@ -27,6 +27,7 @@ public class SceneManager : MonoBehaviour
     public Transform lecturnLoc;
 
     public bool statuePlaced = false;
+    public bool keyPickedUp = false;
     public bool keyPlaced = false;
     public bool flowerPickedUp = false;
 
@@ -77,12 +78,16 @@ public class SceneManager : MonoBehaviour
 
     public ARMeshManager _ARMeshManager;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         endingCollider.enabled = false;
+
+        lecturnLoc.position = playerCamera.transform.position + new UnityEngine.Vector3(0, -2.5f, 2f);
 
         //ARSessionFactory helps create our AR Session. Here, we're telling our 'ARSessionFactory' to listen to when a new ARSession is created, then call an 'OnSessionInitialized' function when we get notified of one being created
         ARSessionFactory.SessionInitialized += OnSessionInitialized;
