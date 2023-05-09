@@ -29,7 +29,7 @@ public class SceneManager : MonoBehaviour
     public bool flowerPickedUp = false;
     public bool flowerPlaced = false;
 
-    public Collider endingCollider;
+    public Collider portalTrigger;
 
     public GameObject rockGroup;
     private GameObject key;
@@ -44,6 +44,7 @@ public class SceneManager : MonoBehaviour
     // AUDIO
     public AudioClip _forestMusic;
     public AudioClip _itemPickUpSound;
+    public AudioClip _clinkleSound;
     public AudioClip _keyPlacementSound;
     public AudioClip _flowerPlacementSound;
 
@@ -73,7 +74,7 @@ public class SceneManager : MonoBehaviour
     {
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
-        endingCollider.enabled = false;
+        portalTrigger.enabled = false;
 
         //ARSessionFactory helps create our AR Session. Here, we're telling our 'ARSessionFactory' to listen to when a new ARSession is created, then call an 'OnSessionInitialized' function when we get notified of one being created
         ARSessionFactory.SessionInitialized += OnSessionInitialized;
@@ -101,7 +102,11 @@ public class SceneManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EndGameSequence();
+        if(other.gameObject.CompareTag("MainCamera"))
+        {
+            EndGameSequence();
+        }
+       
     }
 
     private void PlayMusic()
@@ -208,7 +213,7 @@ public class SceneManager : MonoBehaviour
         _audioSource.PlayOneShot(_flowerPlacementSound);
         chooseYourDeityText.SetActive(false);
         endingText.SetActive(true);
-        endingCollider.enabled = true;
+        portalTrigger.enabled = true;
     }
 
     IEnumerator EndGameSequence()
@@ -222,7 +227,8 @@ public class SceneManager : MonoBehaviour
     IEnumerator WaitAndReloadGame()
     {
         // suspend execution for 5 seconds
-        yield return new WaitForSeconds(45);
+        yield return new WaitForSeconds(2);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
     }
+    
 }

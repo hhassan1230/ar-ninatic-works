@@ -8,6 +8,9 @@ public class PickUp : MonoBehaviour
     public float rayLength = 1.0f;
     public Transform pickupLoc;
     public SceneManager _sceneManagerRef;
+
+    public Material highlightMat;
+    private Material savedMat;
    
 
     private void Update()
@@ -22,7 +25,7 @@ public class PickUp : MonoBehaviour
                 if(rayHit.collider.gameObject.tag == "key")
                 {
                     if (_sceneManagerRef.keyPickedUp == false)
-                    {
+                     {
                         rayHit.collider.transform.parent = pickupLoc;
                         rayHit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
              

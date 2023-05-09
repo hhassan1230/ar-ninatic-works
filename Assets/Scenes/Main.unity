@@ -233,6 +233,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c, type: 3}
+--- !u!65 &75842966 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 985577035376982293, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &309211480
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &309211481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -330,9 +336,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &339373248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 721081470156025298, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+--- !u!4 &437922254 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4446913255941903479, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
     type: 3}
   m_PrefabInstance: {fileID: 1578635219}
   m_PrefabAsset: {fileID: 0}
@@ -436,6 +442,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1057484444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2711918861713337153, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1183767752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6968516734180117296, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
@@ -482,12 +494,6 @@ Transform:
 --- !u!4 &1294341229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7183818555918548327, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1578635219}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1360521120 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 6704178485713635155, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
     type: 3}
   m_PrefabInstance: {fileID: 1578635219}
   m_PrefabAsset: {fileID: 0}
@@ -751,6 +757,7 @@ MonoBehaviour:
   rayLength: 0.8
   pickupLoc: {fileID: 1287964040}
   _sceneManagerRef: {fileID: 1693480852}
+  highlightMat: {fileID: 2100000, guid: 3d174521bc3a946c0bf096c7eaae21fd, type: 2}
 --- !u!136 &1382766813
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -955,8 +962,8 @@ MonoBehaviour:
   keyPlaced: 0
   flowerPickedUp: 0
   flowerPlaced: 0
-  endingCollider: {fileID: 1360521120}
-  rockGroup: {fileID: 339373248}
+  endingCollider: {fileID: 75842966}
+  rockGroup: {fileID: 1057484444}
   keySpawnpoints:
   - {fileID: 1216012180}
   - {fileID: 1879026703}
@@ -967,8 +974,11 @@ MonoBehaviour:
   - {fileID: 1412285033}
   - {fileID: 498932628}
   - {fileID: 1294341229}
+  - {fileID: 1979942125}
+  - {fileID: 437922254}
   _forestMusic: {fileID: 8300000, guid: 86aa2bd0c5b7745328f395826ca28735, type: 3}
   _itemPickUpSound: {fileID: 8300000, guid: b856a20a309614c9f990fe1ab1e1e14c, type: 3}
+  _clinkleSound: {fileID: 0}
   _keyPlacementSound: {fileID: 8300000, guid: 1aaa771b151b3431da21146c60369d9d, type: 3}
   _flowerPlacementSound: {fileID: 8300000, guid: 1aaa771b151b3431da21146c60369d9d,
     type: 3}
@@ -1086,6 +1096,12 @@ AudioSource:
 --- !u!4 &1879026703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4484260734949353967, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1979942125 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2853460367188137339, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
     type: 3}
   m_PrefabInstance: {fileID: 1578635219}
   m_PrefabAsset: {fileID: 0}
