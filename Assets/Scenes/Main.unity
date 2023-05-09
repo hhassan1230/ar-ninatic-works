@@ -233,9 +233,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c, type: 3}
---- !u!65 &75842966 stripped
-BoxCollider:
-  m_CorrespondingSourceObject: {fileID: 985577035376982293, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+--- !u!1 &211105678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4861586071263152474, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
     type: 3}
   m_PrefabInstance: {fileID: 1578635219}
   m_PrefabAsset: {fileID: 0}
@@ -497,6 +497,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1578635219}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1310102430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4460253680079532733, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1382766799
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +525,7 @@ GameObject:
   - component: {fileID: 1382766811}
   - component: {fileID: 1382766812}
   - component: {fileID: 1382766813}
+  - component: {fileID: 1382766814}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -772,6 +779,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!54 &1382766814
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382766799}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1412285033 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4263771844307854187, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
@@ -862,6 +885,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8045065909804713597, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+        type: 3}
+      propertyPath: _sceneManagerRef
+      value: 
+      objectReference: {fileID: 1693480852}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c5f54f5d8235468197e5cc9918c2ce8, type: 3}
 --- !u!1 &1578635220 stripped
@@ -900,6 +928,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1578635219}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1579405952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4175463848340004975, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1579405953 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7963815754292762357, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c,
@@ -912,6 +946,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03b458a9fbbf4cc18d8fd737e2a215e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1579405956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579405952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44516319ab6eb4a98a2936c9a320db2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneManagerRef: {fileID: 1693480852}
 --- !u!1 &1693480850
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +1009,9 @@ MonoBehaviour:
   keyPlaced: 0
   flowerPickedUp: 0
   flowerPlaced: 0
-  portalTrigger: {fileID: 75842966}
+  portalSummoned: 0
+  portalTrigger: {fileID: 1579405952}
+  statueMesh: {fileID: 211105678}
   rockGroup: {fileID: 1057484444}
   keySpawnpoints:
   - {fileID: 1216012180}
@@ -978,7 +1027,6 @@ MonoBehaviour:
   - {fileID: 437922254}
   _forestMusic: {fileID: 8300000, guid: 86aa2bd0c5b7745328f395826ca28735, type: 3}
   _itemPickUpSound: {fileID: 8300000, guid: b856a20a309614c9f990fe1ab1e1e14c, type: 3}
-  _clinkleSound: {fileID: 0}
   _keyPlacementSound: {fileID: 8300000, guid: 1aaa771b151b3431da21146c60369d9d, type: 3}
   _flowerPlacementSound: {fileID: 8300000, guid: 1aaa771b151b3431da21146c60369d9d,
     type: 3}
@@ -990,7 +1038,7 @@ MonoBehaviour:
   flowerPrefab: {fileID: 4698214109222144956, guid: c5a29ddec93284a8296a2029c9843503,
     type: 3}
   LecturnParticles: {fileID: 2021893960}
-  portal: {fileID: 4387681330007958480, guid: 597388f745ec74f3da0e9bd8c8dce5eb, type: 3}
+  endGamePortal: {fileID: 1310102430}
   findAndPlaceKeyText: {fileID: 1578635225}
   mayYourJourney: {fileID: 1578635224}
   findAnOffering: {fileID: 1578635223}

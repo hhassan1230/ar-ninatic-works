@@ -28,8 +28,10 @@ public class SceneManager : MonoBehaviour
     public bool keyPlaced = false;
     public bool flowerPickedUp = false;
     public bool flowerPlaced = false;
+    public bool portalSummoned = false;
 
-    public Collider portalTrigger;
+    public GameObject portalTrigger;
+    public GameObject statueMesh;
 
     public GameObject rockGroup;
     private GameObject key;
@@ -44,7 +46,6 @@ public class SceneManager : MonoBehaviour
     // AUDIO
     public AudioClip _forestMusic;
     public AudioClip _itemPickUpSound;
-    public AudioClip _clinkleSound;
     public AudioClip _keyPlacementSound;
     public AudioClip _flowerPlacementSound;
 
@@ -55,8 +56,7 @@ public class SceneManager : MonoBehaviour
     public GameObject _lightForestPrefab;
     public GameObject flowerPrefab;
     public ParticleSystem LecturnParticles;
-    public GameObject portal;
-    private GameObject endGamePortal;
+    public GameObject endGamePortal;
 
     // LECTURN TEXT
     public GameObject findAndPlaceKeyText;
@@ -75,7 +75,7 @@ public class SceneManager : MonoBehaviour
     {
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
-        portalTrigger.enabled = false;
+        portalTrigger.SetActive(false);
 
         //ARSessionFactory helps create our AR Session. Here, we're telling our 'ARSessionFactory' to listen to when a new ARSession is created, then call an 'OnSessionInitialized' function when we get notified of one being created
         ARSessionFactory.SessionInitialized += OnSessionInitialized;
@@ -99,15 +99,6 @@ public class SceneManager : MonoBehaviour
         {
                 TouchBegan(touch);
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("MainCamera"))
-        {
-            EndGameSequence();
-        }
-       
     }
 
     public void PlayLecturnParticles()
@@ -150,11 +141,6 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-    public void ReloadDemo()
-    {
-        StartCoroutine(WaitAndReloadGame());
-    }
-
     void PlaceStatue()
     {
         statue.SetActive(true);
@@ -190,7 +176,7 @@ public class SceneManager : MonoBehaviour
 
     IEnumerator MayYourJourneyAndFindAnOffering()
     {
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(9f);
         mayYourJourney.SetActive(false);
         findAnOffering.SetActive(true);
         flower = Instantiate(flowerPrefab, flowerSpawnpoints[Random.Range(0, 5)].position, transform.rotation);
@@ -209,7 +195,7 @@ public class SceneManager : MonoBehaviour
     IEnumerator ChooseYourDeityAndLightForestAppearance()
     {
         chooseYourDeityText.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
 
         // LIGHT FOREST APPEARS
         lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
@@ -221,21 +207,25 @@ public class SceneManager : MonoBehaviour
         _audioSource.PlayOneShot(_flowerPlacementSound);
         chooseYourDeityText.SetActive(false);
         endingText.SetActive(true);
-        portalTrigger.enabled = true;
+        portalTrigger.SetActive(true);
         PlayLecturnParticles();
     }
 
-    IEnumerator EndGameSequence()
+    public void EndGameSequence()
     {
-        yield return new WaitForSeconds(1);
-        statue.SetActive(false);
+        statueMesh.SetActive(false);
 
-        endGamePortal = Instantiate(portal, statuePos);
+        endGamePortal.SetActive(true);
     }
 
-    IEnumerator WaitAndReloadGame()
+    public void StartReload()
     {
-        // suspend execution for 5 seconds
+        StartCoroutine(Reload());
+    }
+
+    IEnumerator Reload()
+    {
+        // FADE OUT STARTS HERE!
         yield return new WaitForSeconds(2);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
     }
