@@ -209,7 +209,7 @@ public class SceneManager : MonoBehaviour
     IEnumerator ChooseYourDeityAndLightForestAppearance()
     {
         chooseYourDeityText.SetActive(true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
 
         // LIGHT FOREST APPEARS
         lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
