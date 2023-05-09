@@ -32,6 +32,7 @@ public class SceneManager : MonoBehaviour
     private GameObject lightForest;
     private GameObject flower;
     private AudioSource _audioSource;
+    private Transform statuePos;
 
 
     //private GameObject _preview;
@@ -47,7 +48,8 @@ public class SceneManager : MonoBehaviour
     public AudioClip _keyPlacementSound;
     public AudioClip _flowerPlacementSound;
     public GameObject flowerPrefab;
-    public GameObject endGamePortal;
+    public GameObject portal;
+    private GameObject endGamePortal;
 
     // LECTURN TEXT
     public GameObject defaultText;
@@ -140,6 +142,9 @@ public class SceneManager : MonoBehaviour
         statue = Instantiate(_statuePrefab, rayHit.point + new UnityEngine.Vector3(0, -0.01f, 0), transform.rotation);
         statue.transform.rotation = new UnityEngine.Quaternion(0, 180, 0, 0);
 
+        // USED FOR PORTAL LOCATION LATER.
+        statuePos = statue.transform;
+
         defaultText.SetActive(false);
         findAndPlaceKeyText.SetActive(true);
 
@@ -198,9 +203,10 @@ public class SceneManager : MonoBehaviour
 
     IEnumerator EndGameSequence()
     {
-        yield return new WaitForSeconds(1)
+        yield return new WaitForSeconds(1);
         statue.SetActive(false);
-        endGamePortal.SetActive(true);
+
+        endGamePortal = Instantiate(portal, statuePos);
     }
 
     IEnumerator WaitAndReloadGame()
