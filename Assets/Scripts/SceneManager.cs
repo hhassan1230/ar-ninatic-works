@@ -21,10 +21,7 @@ using Niantic.ARDK.Extensions.Meshing;
 //Define our main class
 public class SceneManager : MonoBehaviour
 {
-    public bool particlesAreMoving = false;
-
     private GameObject playerCamera;
-    public Transform lecturnLoc;
 
     public bool statuePlaced = false;
     public bool keyPickedUp = false;
@@ -34,18 +31,13 @@ public class SceneManager : MonoBehaviour
 
     public Collider endingCollider;
    
-    private GameObject statue;
     private GameObject key;
     private GameObject lightForest;
     private GameObject flower;
     private AudioSource _audioSource;
     private Transform statuePos;
 
-
-    //private GameObject _preview;
-    //private UnityEngine.Vector3 target;
-    //float _speed = 1.0f;
-    //public GameObject _statuePreview;
+    public Transform[] flowerSpawnpoints;
 
     // AUDIO
     public AudioClip _forestMusic;
@@ -54,7 +46,8 @@ public class SceneManager : MonoBehaviour
     public AudioClip _flowerPlacementSound;
 
     private RaycastHit rayHit;
-    public GameObject _statuePrefab;
+
+    public GameObject statue;
     public GameObject _keyPrefab;
     public GameObject _lightForestPrefab;
     public GameObject flowerPrefab;
@@ -62,24 +55,16 @@ public class SceneManager : MonoBehaviour
     private GameObject endGamePortal;
 
     // LECTURN TEXT
-    public GameObject defaultText;
     public GameObject findAndPlaceKeyText;
     public GameObject mayYourJourney;
     public GameObject findAnOffering;
     public GameObject chooseYourDeityText;
     public GameObject endingText;
 
-    // LECTURN PARTICLES SEQUENCE
-    public GameObject lecturnParticles;
-    public GameObject movingParticles;
-    private GameObject _movingParticles;
-
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
 
     public ARMeshManager _ARMeshManager;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -87,8 +72,6 @@ public class SceneManager : MonoBehaviour
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         endingCollider.enabled = false;
-
-        lecturnLoc.position = playerCamera.transform.position + new UnityEngine.Vector3(0, -2.5f, 2f);
 
         //ARSessionFactory helps create our AR Session. Here, we're telling our 'ARSessionFactory' to listen to when a new ARSession is created, then call an 'OnSessionInitialized' function when we get notified of one being created
         ARSessionFactory.SessionInitialized += OnSessionInitialized;
@@ -112,8 +95,6 @@ public class SceneManager : MonoBehaviour
         {
                 TouchBegan(touch);
         }
-
-        //ParticlesToLecturnSequence();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -163,14 +144,12 @@ public class SceneManager : MonoBehaviour
 
     void PlaceStatue()
     {
-        statue = Instantiate(_statuePrefab, rayHit.point + new UnityEngine.Vector3(0, -0.01f, 0), transform.rotation);
+        statue.SetActive(true);
+        statue.transform.position = rayHit.point + new UnityEngine.Vector3(0, -0.01f, 0);
         statue.transform.rotation = new UnityEngine.Quaternion(0, 180, 0, 0);
 
         // USED FOR PORTAL LOCATION LATER.
         statuePos = statue.transform;
-
-        defaultText.SetActive(false);
-        findAndPlaceKeyText.SetActive(true);
 
         key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(1f, -1f, 1.0f), transform.rotation);
         statuePlaced = true;
@@ -189,9 +168,6 @@ public class SceneManager : MonoBehaviour
         findAndPlaceKeyText.SetActive(false);
         _audioSource.PlayOneShot(_keyPlacementSound);
 
-        //PARTICLES MOVE TO LECTURN
-        particlesAreMoving = true;
-
         StartCoroutine(MayYourJourneyAndFindAnOffering());
     }
 
@@ -202,7 +178,7 @@ public class SceneManager : MonoBehaviour
         yield return new WaitForSeconds(8);
         mayYourJourney.SetActive(false);
         findAnOffering.SetActive(true);
-        flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(0, 0, 1.0f), transform.rotation);
+        flower = Instantiate(flowerPrefab, flowerSpawnpoints[Random.Range(0, 3)].position, transform.rotation);
         yield return new WaitForSeconds(1);
     }
 
@@ -210,7 +186,6 @@ public class SceneManager : MonoBehaviour
     {
         findAnOffering.SetActive(false);
         flowerPickedUp = true;
-        // PARTICLE SYSTEM FUNCTION PLAYS AND MOVES TO LECTURN
         StartCoroutine(ChooseYourDeityAndLightForestAppearance());
     }
 
@@ -227,39 +202,10 @@ public class SceneManager : MonoBehaviour
 
     public void OfferingPlaced()
     {
-        // PARTICLE SYSTEM PLAYS TO LECTURN
-        // LECTURN PARTICLES PLAY
-
         _audioSource.PlayOneShot(_flowerPlacementSound);
         endingText.SetActive(true);
         endingCollider.enabled = true;
     }
-
-    /*void ParticlesToLecturnSequence()
-    {
-        if (particlesAreMoving)
-        {
-            if (_movingParticles == null)
-            {
-                lecturnParticles.GetComponent<ParticleSystem>().Play();
-                _movingParticles = Instantiate(movingParticles, playerCamera.transform);
-            }
-            else
-            {
-                _movingParticles.transform.position = UnityEngine.Vector3.Lerp(_movingParticles.transform.position, lecturnLoc.position, 0.25f * Time.deltaTime);
-            }
-
-            if (_movingParticles.transform.position == lecturnLoc.position)
-            {
-                particlesAreMoving = false;
-                Destroy(_movingParticles);
-            }
-        }
-        else
-        {
-            return;
-        }
-    } */
 
     IEnumerator EndGameSequence()
     {
