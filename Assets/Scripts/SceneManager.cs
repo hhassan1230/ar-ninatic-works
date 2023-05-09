@@ -30,13 +30,15 @@ public class SceneManager : MonoBehaviour
     public bool flowerPlaced = false;
 
     public Collider endingCollider;
-   
+
+    public GameObject rockGroup;
     private GameObject key;
     private GameObject lightForest;
     private GameObject flower;
     private AudioSource _audioSource;
     private Transform statuePos;
 
+    public Transform[] keySpawnpoints;
     public Transform[] flowerSpawnpoints;
 
     // AUDIO
@@ -151,7 +153,7 @@ public class SceneManager : MonoBehaviour
         // USED FOR PORTAL LOCATION LATER.
         statuePos = statue.transform;
 
-        key = Instantiate(_keyPrefab, statue.transform.position - new UnityEngine.Vector3(1f, -1f, 1.0f), transform.rotation);
+        key = Instantiate(_keyPrefab, keySpawnpoints[Random.Range(0, 5)].position, transform.rotation);
         statuePlaced = true;
 
         _ARMeshManager.UseInvisibleMaterial = true;
@@ -166,6 +168,7 @@ public class SceneManager : MonoBehaviour
     {
         keyPlaced = true;
         findAndPlaceKeyText.SetActive(false);
+        rockGroup.SetActive(false);
         _audioSource.PlayOneShot(_keyPlacementSound);
 
         StartCoroutine(MayYourJourneyAndFindAnOffering());
@@ -178,7 +181,7 @@ public class SceneManager : MonoBehaviour
         yield return new WaitForSeconds(8);
         mayYourJourney.SetActive(false);
         findAnOffering.SetActive(true);
-        flower = Instantiate(flowerPrefab, flowerSpawnpoints[Random.Range(0, 3)].position, transform.rotation);
+        flower = Instantiate(flowerPrefab, flowerSpawnpoints[Random.Range(0, 5)].position, transform.rotation);
         yield return new WaitForSeconds(1);
     }
 
@@ -203,6 +206,7 @@ public class SceneManager : MonoBehaviour
     public void OfferingPlaced()
     {
         _audioSource.PlayOneShot(_flowerPlacementSound);
+        chooseYourDeityText.SetActive(false);
         endingText.SetActive(true);
         endingCollider.enabled = true;
     }

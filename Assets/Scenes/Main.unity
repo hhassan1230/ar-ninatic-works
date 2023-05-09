@@ -330,6 +330,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &339373248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 721081470156025298, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &498932628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3610451954969240664, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
@@ -430,6 +436,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &1183767752 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6968516734180117296, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1216012180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3686784901196118448, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287964039
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,6 +771,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1578635219}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1425589353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7143305155884068779, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1558475542 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6715844847540430194, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1578635219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -926,6 +956,13 @@ MonoBehaviour:
   flowerPickedUp: 0
   flowerPlaced: 0
   endingCollider: {fileID: 1360521120}
+  rockGroup: {fileID: 339373248}
+  keySpawnpoints:
+  - {fileID: 1216012180}
+  - {fileID: 1879026703}
+  - {fileID: 1425589353}
+  - {fileID: 1558475542}
+  - {fileID: 1183767752}
   flowerSpawnpoints:
   - {fileID: 1412285033}
   - {fileID: 498932628}
@@ -1046,3 +1083,9 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1879026703 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4484260734949353967, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}

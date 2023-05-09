@@ -1132,6 +1132,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98940665388374a9f8c9c27ce99ca545, type: 3}
+--- !u!1 &45720637684730136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4251332438894059159, guid: 98940665388374a9f8c9c27ce99ca545,
+    type: 3}
+  m_PrefabInstance: {fileID: 4205705616183416719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6040950800644595134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7604449220165241393, guid: 98940665388374a9f8c9c27ce99ca545,
@@ -2133,7 +2139,7 @@ MonoBehaviour:
   newFlowerObj: {fileID: 4698214109222144956, guid: c5a29ddec93284a8296a2029c9843503,
     type: 3}
   flowerLocPos: {fileID: 5876016321717499887}
-  godText: {fileID: 0}
+  godText: {fileID: 45720637684730136}
 --- !u!4 &2024583130946688138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5321080771027960433, guid: c4144285951454444aac0c4bff89a124,
