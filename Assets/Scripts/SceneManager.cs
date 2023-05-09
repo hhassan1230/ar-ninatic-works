@@ -167,6 +167,7 @@ public class SceneManager : MonoBehaviour
         yield return new WaitForSeconds(8);
         mayYourJourney.SetActive(false);
         findAnOffering.SetActive(true);
+        flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(0, 0, 1.0f), transform.rotation);
         yield return new WaitForSeconds(1);
     }
 
@@ -184,7 +185,6 @@ public class SceneManager : MonoBehaviour
         chooseYourDeityText.SetActive(true);
         yield return new WaitForSeconds(5);
         lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
-        flower = Instantiate(flowerPrefab, statue.transform.position - new UnityEngine.Vector3(0, 0, 1.0f), transform.rotation);
         PlayMusic();
     }
 
@@ -198,7 +198,7 @@ public class SceneManager : MonoBehaviour
 
     IEnumerator EndGameSequence()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1)
         statue.SetActive(false);
         endGamePortal.SetActive(true);
     }

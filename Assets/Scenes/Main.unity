@@ -789,6 +789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statuePlaced: 0
   keyPlaced: 0
+  flowerPickedUp: 0
+  endingCollider: {fileID: 3364862390679680144}
   _statuePrefab: {fileID: 2615881227472552954, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
     type: 3}
   _keyPrefab: {fileID: 2610937432960401339, guid: fd86951434f9c4dd590ff77b8c105de2,
@@ -801,6 +803,7 @@ MonoBehaviour:
     type: 3}
   flowerPrefab: {fileID: 4698214109222144956, guid: c5a29ddec93284a8296a2029c9843503,
     type: 3}
+  endGamePortal: {fileID: 0}
   defaultText: {fileID: 1225576159157336151}
   findAndPlaceKeyText: {fileID: 8504945506140673644}
   mayYourJourney: {fileID: 4574315885350750900}
