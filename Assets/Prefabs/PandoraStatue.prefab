@@ -147,7 +147,7 @@ Transform:
   - {fileID: 6001782201423156949}
   - {fileID: 8114110901722382313}
   m_Father: {fileID: 8479926124761724448}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2615881227472552901
 GameObject:
@@ -412,7 +412,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8479926124761724448}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2615881227472552919
 MeshFilter:
@@ -592,7 +592,6 @@ Transform:
   - {fileID: 2615881227472552911}
   - {fileID: 1025940364}
   - {fileID: 7972502067922311515}
-  - {fileID: 8967481840987457411}
   - {fileID: 630335489517257445}
   - {fileID: 4748458401190639485}
   - {fileID: 2615881227472552899}
@@ -630,37 +629,6 @@ Transform:
   - {fileID: 2820579266484741443}
   m_Father: {fileID: 1025940364}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6043878872634905319
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8967481840987457411}
-  m_Layer: 0
-  m_Name: ParticleBase
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &8967481840987457411
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6043878872634905319}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.73, z: 0.362}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8479926124761724448}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1880769653251876493
 PrefabInstance:
@@ -747,7 +715,7 @@ PrefabInstance:
     - target: {fileID: 1475161293062995910, guid: 298eada791c6482419e04b63b58c5d44,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1475161293062995910, guid: 298eada791c6482419e04b63b58c5d44,
         type: 3}
@@ -828,6 +796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Glow aura
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570300512659992540, guid: 298eada791c6482419e04b63b58c5d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4727863837733998813, guid: 298eada791c6482419e04b63b58c5d44,
         type: 3}

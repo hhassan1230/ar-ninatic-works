@@ -21,6 +21,11 @@ using Niantic.ARDK.Extensions.Meshing;
 //Define our main class
 public class SceneManager : MonoBehaviour
 {
+    public bool particlesAreMoving = false;
+
+    private GameObject playerCamera;
+    public Transform lecturnLoc;
+
     public bool statuePlaced = false;
     public bool keyPlaced = false;
     public bool flowerPickedUp = false;
@@ -40,13 +45,16 @@ public class SceneManager : MonoBehaviour
     //float _speed = 1.0f;
     //public GameObject _statuePreview;
 
+    // AUDIO
+    public AudioClip _forestMusic;
+    public AudioClip _itemPickUpSound;
+    public AudioClip _keyPlacementSound;
+    public AudioClip _flowerPlacementSound;
+
     private RaycastHit rayHit;
     public GameObject _statuePrefab;
     public GameObject _keyPrefab;
     public GameObject _lightForestPrefab;
-    public AudioClip _forestMusic;
-    public AudioClip _keyPlacementSound;
-    public AudioClip _flowerPlacementSound;
     public GameObject flowerPrefab;
     public GameObject portal;
     private GameObject endGamePortal;
@@ -59,6 +67,11 @@ public class SceneManager : MonoBehaviour
     public GameObject chooseYourDeityText;
     public GameObject endingText;
 
+    // LECTURN PARTICLES SEQUENCE
+    public GameObject lecturnParticles;
+    public GameObject movingParticles;
+    private GameObject _movingParticles;
+
     public Camera _mainCamera;  //This will reference the MainCamera in the scene, so the ARDK can leverage the device camera
     IARSession _ARsession;  //An ARDK ARSession is the main piece that manages the AR experience
 
@@ -67,6 +80,8 @@ public class SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
         endingCollider.enabled = false;
 
         //ARSessionFactory helps create our AR Session. Here, we're telling our 'ARSessionFactory' to listen to when a new ARSession is created, then call an 'OnSessionInitialized' function when we get notified of one being created
@@ -78,6 +93,7 @@ public class SceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //If there is no touch, we're not going to do anything
         if (PlatformAgnosticInput.touchCount <= 0)
         {
@@ -90,6 +106,8 @@ public class SceneManager : MonoBehaviour
         {
                 TouchBegan(touch);
         }
+
+        ParticlesToLecturnSequence();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -154,6 +172,11 @@ public class SceneManager : MonoBehaviour
         _ARMeshManager.UseInvisibleMaterial = true;
     }
 
+    public void PlayItemPickUp()
+    {
+        _audioSource.PlayOneShot(_itemPickUpSound);
+    }
+
     public void KeyPlaced()
     {
         keyPlaced = true;
@@ -161,6 +184,7 @@ public class SceneManager : MonoBehaviour
         _audioSource.PlayOneShot(_keyPlacementSound);
 
         //PARTICLES MOVE TO LECTURN
+        particlesAreMoving = true;
 
         StartCoroutine(MayYourJourneyAndFindAnOffering());
     }
@@ -189,6 +213,8 @@ public class SceneManager : MonoBehaviour
     {
         chooseYourDeityText.SetActive(true);
         yield return new WaitForSeconds(5);
+
+        // LIGHT FOREST APPEARS
         lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
         PlayMusic();
     }
@@ -197,8 +223,36 @@ public class SceneManager : MonoBehaviour
     {
         // PARTICLE SYSTEM PLAYS TO LECTURN
         // LECTURN PARTICLES PLAY
+
+        _audioSource.PlayOneShot(_flowerPlacementSound);
         endingText.SetActive(true);
         endingCollider.enabled = true;
+    }
+
+    void ParticlesToLecturnSequence()
+    {
+        if (particlesAreMoving)
+        {
+            if (_movingParticles == null)
+            {
+                lecturnParticles.GetComponent<ParticleSystem>().Play();
+                _movingParticles = Instantiate(movingParticles, playerCamera.transform);
+            }
+            else
+            {
+                _movingParticles.transform.position = UnityEngine.Vector3.Lerp(_movingParticles.transform.position, lecturnLoc.position, 0.25f * Time.deltaTime);
+            }
+
+            if (_movingParticles.transform.position == lecturnLoc.position)
+            {
+                particlesAreMoving = false;
+                Destroy(_movingParticles);
+            }
+        }
+        else
+        {
+            return;
+        }
     }
 
     IEnumerator EndGameSequence()

@@ -12,7 +12,6 @@ public class LockKeyLogic : MonoBehaviour
     void Start()
     {
         _sceneManager = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>();
-        print("found manager");
     }
 
     void OnCollisionEnter(Collision collision)
@@ -22,7 +21,7 @@ public class LockKeyLogic : MonoBehaviour
         {
             keyParticles.SetActive(true);
             Destroy(collision.gameObject);
-            _sceneManager.KeyPlaced();
+            _sceneManager.PlayItemPickUp();
         }
     }
 }

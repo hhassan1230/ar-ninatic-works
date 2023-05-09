@@ -23,12 +23,14 @@ public class PickUp : MonoBehaviour
                 {
                 rayHit.collider.transform.parent = pickupLoc;
                 rayHit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
-                }
+                _sceneManagerRef.PlayItemPickUp();
+            }
 
             if (rayHit.collider.gameObject.tag == "Flower")
             {
                 rayHit.collider.transform.parent = pickupLoc;
                 rayHit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+                _sceneManagerRef.PlayItemPickUp();
                 _sceneManagerRef.FlowerPickedUp();
             }
         }
