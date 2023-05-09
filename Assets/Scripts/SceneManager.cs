@@ -54,6 +54,7 @@ public class SceneManager : MonoBehaviour
     public GameObject _keyPrefab;
     public GameObject _lightForestPrefab;
     public GameObject flowerPrefab;
+    public ParticleSystem LecturnParticles;
     public GameObject portal;
     private GameObject endGamePortal;
 
@@ -109,6 +110,11 @@ public class SceneManager : MonoBehaviour
        
     }
 
+    public void PlayLecturnParticles()
+    {
+        LecturnParticles.Play();
+    }
+
     private void PlayMusic()
     {
         _audioSource.Play();
@@ -152,6 +158,7 @@ public class SceneManager : MonoBehaviour
     void PlaceStatue()
     {
         statue.SetActive(true);
+        PlayLecturnParticles();
         statue.transform.position = rayHit.point + new UnityEngine.Vector3(0, -0.01f, 0);
         statue.transform.rotation = new UnityEngine.Quaternion(0, 180, 0, 0);
 
@@ -175,14 +182,14 @@ public class SceneManager : MonoBehaviour
         findAndPlaceKeyText.SetActive(false);
         rockGroup.SetActive(false);
         _audioSource.PlayOneShot(_keyPlacementSound);
+        mayYourJourney.SetActive(true);
+        PlayLecturnParticles();
 
         StartCoroutine(MayYourJourneyAndFindAnOffering());
     }
 
     IEnumerator MayYourJourneyAndFindAnOffering()
     {
-        yield return new WaitForSeconds(5);
-        mayYourJourney.SetActive(true);
         yield return new WaitForSeconds(8);
         mayYourJourney.SetActive(false);
         findAnOffering.SetActive(true);
@@ -194,6 +201,7 @@ public class SceneManager : MonoBehaviour
     {
         findAnOffering.SetActive(false);
         flowerPickedUp = true;
+        PlayLecturnParticles();
         StartCoroutine(ChooseYourDeityAndLightForestAppearance());
     }
 
@@ -201,7 +209,7 @@ public class SceneManager : MonoBehaviour
     IEnumerator ChooseYourDeityAndLightForestAppearance()
     {
         chooseYourDeityText.SetActive(true);
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(4);
 
         // LIGHT FOREST APPEARS
         lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
@@ -214,6 +222,7 @@ public class SceneManager : MonoBehaviour
         chooseYourDeityText.SetActive(false);
         endingText.SetActive(true);
         portalTrigger.enabled = true;
+        PlayLecturnParticles();
     }
 
     IEnumerator EndGameSequence()
