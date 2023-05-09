@@ -962,7 +962,7 @@ MonoBehaviour:
   keyPlaced: 0
   flowerPickedUp: 0
   flowerPlaced: 0
-  endingCollider: {fileID: 75842966}
+  portalTrigger: {fileID: 75842966}
   rockGroup: {fileID: 1057484444}
   keySpawnpoints:
   - {fileID: 1216012180}
@@ -989,6 +989,7 @@ MonoBehaviour:
     type: 3}
   flowerPrefab: {fileID: 4698214109222144956, guid: c5a29ddec93284a8296a2029c9843503,
     type: 3}
+  LecturnParticles: {fileID: 2021893960}
   portal: {fileID: 4387681330007958480, guid: 597388f745ec74f3da0e9bd8c8dce5eb, type: 3}
   findAndPlaceKeyText: {fileID: 1578635225}
   mayYourJourney: {fileID: 1578635224}
@@ -1102,6 +1103,12 @@ Transform:
 --- !u!4 &1979942125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2853460367188137339, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1578635219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &2021893960 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9088361143470309093, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
     type: 3}
   m_PrefabInstance: {fileID: 1578635219}
   m_PrefabAsset: {fileID: 0}
