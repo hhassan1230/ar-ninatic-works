@@ -30,6 +30,7 @@ public class SceneManager : MonoBehaviour
     public bool keyPickedUp = false;
     public bool keyPlaced = false;
     public bool flowerPickedUp = false;
+    public bool flowerPlaced = false;
 
     public Collider endingCollider;
    
@@ -112,7 +113,7 @@ public class SceneManager : MonoBehaviour
                 TouchBegan(touch);
         }
 
-        ParticlesToLecturnSequence();
+        //ParticlesToLecturnSequence();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -217,7 +218,7 @@ public class SceneManager : MonoBehaviour
     IEnumerator ChooseYourDeityAndLightForestAppearance()
     {
         chooseYourDeityText.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
 
         // LIGHT FOREST APPEARS
         lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
@@ -234,7 +235,7 @@ public class SceneManager : MonoBehaviour
         endingCollider.enabled = true;
     }
 
-    void ParticlesToLecturnSequence()
+    /*void ParticlesToLecturnSequence()
     {
         if (particlesAreMoving)
         {
@@ -258,7 +259,7 @@ public class SceneManager : MonoBehaviour
         {
             return;
         }
-    }
+    } */
 
     IEnumerator EndGameSequence()
     {

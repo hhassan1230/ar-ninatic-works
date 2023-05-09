@@ -21,21 +21,25 @@ public class PickUp : MonoBehaviour
             {
                 if(rayHit.collider.gameObject.tag == "key")
                 {
-                rayHit.collider.transform.parent = pickupLoc;
-                rayHit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
-                if(_sceneManagerRef.keyPickedUp == false)
-                {
-                    _sceneManagerRef.PlayItemPickUp();
-                    _sceneManagerRef.keyPickedUp = true;
-                }
+                    if (_sceneManagerRef.keyPickedUp == false)
+                    {
+                        rayHit.collider.transform.parent = pickupLoc;
+                        rayHit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+             
+                        _sceneManagerRef.PlayItemPickUp();
+                        _sceneManagerRef.keyPickedUp = true;
+                    }
             }
 
             if (rayHit.collider.gameObject.tag == "Flower")
             {
-                rayHit.collider.transform.parent = pickupLoc;
-                rayHit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
-                _sceneManagerRef.PlayItemPickUp();
-                _sceneManagerRef.FlowerPickedUp();
+                if(_sceneManagerRef.flowerPickedUp == false)
+                {
+                    rayHit.collider.transform.parent = pickupLoc;
+                    rayHit.collider.gameObject.GetComponentInChildren<ParticleSystem>().Stop();
+                    _sceneManagerRef.PlayItemPickUp();
+                    _sceneManagerRef.FlowerPickedUp();
+                }    
             }
         }
 

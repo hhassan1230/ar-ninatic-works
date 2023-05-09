@@ -25,22 +25,20 @@ public class GodOfferingLogic : MonoBehaviour
         //Check to see if the tag on the collider is equal to Enemy
         if (collision.gameObject.tag == "Flower")
         {
-            //_sceneManager.keyPlaced = true;
+            if(_sceneManager.flowerPlaced == false)
+            {
+            _sceneManager.flowerPlaced = true;
             print("I'm colliding with " + collision.gameObject.name);
             godParticles.SetActive(true);
             Destroy(collision.gameObject);
-            _sceneManager.PlayFlowerSound();
+            _sceneManager.OfferingPlaced();
 
             clonedFlower = Instantiate(newFlowerObj, flowerLocPos.position, flowerLocPos.rotation);
             clonedFlower.GetComponent<Collider>().enabled = false;
             clonedFlower.GetComponentInChildren<ParticleSystem>().Stop();
-
-
             godText.SetActive(true);
 
-            //_sceneManager.ReloadDemo();
-
-
+            }
         }
     }
 }
