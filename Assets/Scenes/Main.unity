@@ -820,6 +820,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1653430658284544679, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.069108
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653430658284544679, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5524139
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653430658284544679, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.83628595
+      objectReference: {fileID: 0}
     - target: {fileID: 2615881227472552898, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
         type: 3}
       propertyPath: m_RootOrder
@@ -881,6 +896,11 @@ PrefabInstance:
       value: PandoraStatue
       objectReference: {fileID: 0}
     - target: {fileID: 2615881227472552954, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460253680079532733, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1013,6 +1033,7 @@ MonoBehaviour:
   portalTrigger: {fileID: 1579405952}
   statueMesh: {fileID: 211105678}
   rockGroup: {fileID: 1057484444}
+  lightForest: {fileID: 0}
   keySpawnpoints:
   - {fileID: 1216012180}
   - {fileID: 1879026703}

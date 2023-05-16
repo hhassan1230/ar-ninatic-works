@@ -35,7 +35,7 @@ public class SceneManager : MonoBehaviour
 
     public GameObject rockGroup;
     private GameObject key;
-    private GameObject lightForest;
+    public GameObject lightForest;
     private GameObject flower;
     private AudioSource _audioSource;
     private Transform statuePos;
@@ -176,7 +176,7 @@ public class SceneManager : MonoBehaviour
 
     IEnumerator MayYourJourneyAndFindAnOffering()
     {
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(11f);
         mayYourJourney.SetActive(false);
         findAnOffering.SetActive(true);
         flower = Instantiate(flowerPrefab, flowerSpawnpoints[Random.Range(0, 5)].position, transform.rotation);

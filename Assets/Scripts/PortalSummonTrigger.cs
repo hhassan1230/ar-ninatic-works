@@ -12,6 +12,7 @@ public class PortalSummonTrigger : MonoBehaviour
         {
             if(_sceneManagerRef.portalSummoned == false)
             {
+                _sceneManagerRef.lightForest.SetActive(false);
                 _sceneManagerRef.portalSummoned = true;
                 _sceneManagerRef.EndGameSequence();
             }
