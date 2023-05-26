@@ -197,7 +197,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
+  m_BackGroundColor: {r: 0.2509804, g: 0, b: 0.2509804, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b199752e706324c1082952399a38d67c, type: 3}
+  m_Texture: {fileID: 2800000, guid: e766ff5c8e53044f0b3c41e5e0418590, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

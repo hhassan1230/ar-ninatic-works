@@ -74,7 +74,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e9f9fca1f8788ea46b7342f18159a024, type: 3}
+        m_Texture: {fileID: 2800000, guid: c5dd3662a46b5424fa4183bb0327a1fe, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -144,16 +144,16 @@ Material:
     - _AdvancedDissolveKeywordEdgeUVDistortionSource: 0
     - _AdvancedDissolveKeywordGlobalControlID: 0
     - _AdvancedDissolveKeywordState: 1
-    - _BumpScale: 0.7
+    - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 0.628
+    - _GlossMapScale: 0.743
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _OcclusionStrength: 0.843
+    - _OcclusionStrength: 0.69
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

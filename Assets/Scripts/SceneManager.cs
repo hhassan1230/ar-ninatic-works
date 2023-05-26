@@ -166,7 +166,6 @@ public class SceneManager : MonoBehaviour
     {
         keyPlaced = true;
         findAndPlaceKeyText.SetActive(false);
-        rockGroup.SetActive(false);
         _audioSource.PlayOneShot(_keyPlacementSound);
         mayYourJourney.SetActive(true);
         PlayLecturnParticles();
@@ -198,6 +197,7 @@ public class SceneManager : MonoBehaviour
         yield return new WaitForSeconds(6);
 
         // LIGHT FOREST APPEARS
+        rockGroup.SetActive(false);
         lightForest = Instantiate(_lightForestPrefab, statue.transform.position, statue.transform.rotation);
         PlayMusic();
     }
