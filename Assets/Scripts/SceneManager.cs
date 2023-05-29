@@ -45,6 +45,7 @@ public class SceneManager : MonoBehaviour
 
     // AUDIO
     public AudioClip _forestMusic;
+    public AudioClip _StatuePlacementMusic;
     public AudioClip _itemPickUpSound;
     public AudioClip _keyPlacementSound;
     public AudioClip _flowerPlacementSound;
@@ -144,6 +145,7 @@ public class SceneManager : MonoBehaviour
     void PlaceStatue()
     {
         statue.SetActive(true);
+        _audioSource.PlayOneShot(_StatuePlacementMusic);
         PlayLecturnParticles();
         statue.transform.position = rayHit.point + new UnityEngine.Vector3(0, -0.01f, 0);
         //statue.transform.rotation = new UnityEngine.Quaternion(0, 180, 0, 0);

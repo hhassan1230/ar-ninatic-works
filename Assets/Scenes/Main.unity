@@ -1029,6 +1029,8 @@ MonoBehaviour:
   - {fileID: 1979942125}
   - {fileID: 437922254}
   _forestMusic: {fileID: 8300000, guid: 86aa2bd0c5b7745328f395826ca28735, type: 3}
+  _StatuePlacementMusic: {fileID: 8300000, guid: 3c517052588a74e66ab602238fb45ab6,
+    type: 3}
   _itemPickUpSound: {fileID: 8300000, guid: b856a20a309614c9f990fe1ab1e1e14c, type: 3}
   _keyPlacementSound: {fileID: 8300000, guid: 1aaa771b151b3431da21146c60369d9d, type: 3}
   _flowerPlacementSound: {fileID: 8300000, guid: 1aaa771b151b3431da21146c60369d9d,
