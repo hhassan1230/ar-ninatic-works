@@ -147,9 +147,13 @@ public class SceneManager : MonoBehaviour
         statue.SetActive(true);
         _audioSource.PlayOneShot(_StatuePlacementMusic);
         PlayLecturnParticles();
-        statue.transform.position = rayHit.point + new UnityEngine.Vector3(0, -0.01f, 0);
-        //statue.transform.rotation = new UnityEngine.Quaternion(0, 180, 0, 0);
-        statue.transform.LookAt(_mainCamera.transform);
+        statue.transform.position = rayHit.point + new UnityEngine.Vector3(0, -0.015f, 0);
+        statue.transform.rotation = new UnityEngine.Quaternion(0, 180, 0, 0);
+
+        //statue.transform.LookAt(_mainCamera.transform);
+
+        //statue.transform.rotation = new UnityEngine.Quaternion(0, statue.transform.rotation.y, statue.transform.rotation.z, 0);
+
 
         // USED FOR PORTAL LOCATION LATER.
         statuePos = statue.transform;
