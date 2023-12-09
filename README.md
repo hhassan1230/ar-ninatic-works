@@ -40,7 +40,7 @@
 ## Development and Availability
 
 - Platform: Mobile (iOS and Android)
-- Development Timeline: 2 weeks
+- Development Timeline: November to Mid December
 
 ---
 
