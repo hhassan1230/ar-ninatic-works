@@ -1,0 +1,248 @@
+fileFormatVersion: 2
+guid: 1f4325db8d3f6e44981cd1900c3a0b60
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: frame_001_Part_041
+    100002: frame_001_Part_042
+    100004: frame_001_Part_043
+    100006: frame_001_Part_044
+    100008: frame_001_Part_045
+    100010: frame_001_Part_046
+    100012: frame_001_Part_047
+    100014: frame_001_Part_048
+    100016: frame_001_Part_049
+    100018: frame_001_Part_050
+    100020: frame_001_Part_051
+    100022: frame_001_Part_052
+    100024: frame_001_Part_053
+    100026: frame_001_Part_054
+    100028: frame_001_Part_055
+    100030: frame_001_Part_056
+    100032: frame_001_Part_057
+    100034: frame_001_Part_058
+    100036: frame_001_Part_059
+    100038: frame_001_Part_060
+    100040: frame_001_Part_061
+    100042: frame_001_Part_062
+    100044: frame_001_Part_063
+    100046: frame_001_Part_064
+    100048: frame_001_Part_065
+    100050: frame_001_Part_066
+    100052: frame_001_Part_067
+    100054: frame_001_Part_068
+    100056: frame_001_Part_069
+    100058: frame_001_Part_070
+    100060: frame_001_Part_071
+    100062: frame_001_Part_072
+    100064: frame_001_Part_073
+    100066: frame_001_Part_074
+    100068: frame_001_Part_075
+    100070: frame_001_Part_076
+    100072: frame_001_Part_077
+    100074: frame_001_Part_078
+    100076: frame_001_Part_079
+    100078: frame_001_Part_080
+    100080: Frame_Mover
+    100082: Frame_Skin
+    100084: //RootNode
+    100086: Plane_Part_031
+    100088: Plane_Part_032
+    100090: Plane_Part_033
+    100092: Plane_Part_034
+    100094: Plane_Part_035
+    100096: Plane_Part_036
+    100098: Plane_Part_037
+    100100: Plane_Part_038
+    100102: Plane_Part_039
+    100104: Plane_Part_040
+    100106: Plane_Part_041
+    100108: Plane_Part_042
+    100110: Plane_Part_043
+    100112: Plane_Part_044
+    100114: Plane_Part_045
+    100116: Plane_Part_046
+    100118: Plane_Part_047
+    100120: Plane_Part_048
+    100122: Plane_Part_049
+    100124: Plane_Part_050
+    100126: Plane_Part_051
+    100128: Plane_Part_052
+    100130: Plane_Part_053
+    100132: Plane_Part_054
+    100134: Plane_Part_055
+    100136: Plane_Part_056
+    100138: Plane_Part_057
+    100140: Plane_Part_058
+    100142: Plane_Part_059
+    100144: Plane_Part_060
+    400000: frame_001_Part_041
+    400002: frame_001_Part_042
+    400004: frame_001_Part_043
+    400006: frame_001_Part_044
+    400008: frame_001_Part_045
+    400010: frame_001_Part_046
+    400012: frame_001_Part_047
+    400014: frame_001_Part_048
+    400016: frame_001_Part_049
+    400018: frame_001_Part_050
+    400020: frame_001_Part_051
+    400022: frame_001_Part_052
+    400024: frame_001_Part_053
+    400026: frame_001_Part_054
+    400028: frame_001_Part_055
+    400030: frame_001_Part_056
+    400032: frame_001_Part_057
+    400034: frame_001_Part_058
+    400036: frame_001_Part_059
+    400038: frame_001_Part_060
+    400040: frame_001_Part_061
+    400042: frame_001_Part_062
+    400044: frame_001_Part_063
+    400046: frame_001_Part_064
+    400048: frame_001_Part_065
+    400050: frame_001_Part_066
+    400052: frame_001_Part_067
+    400054: frame_001_Part_068
+    400056: frame_001_Part_069
+    400058: frame_001_Part_070
+    400060: frame_001_Part_071
+    400062: frame_001_Part_072
+    400064: frame_001_Part_073
+    400066: frame_001_Part_074
+    400068: frame_001_Part_075
+    400070: frame_001_Part_076
+    400072: frame_001_Part_077
+    400074: frame_001_Part_078
+    400076: frame_001_Part_079
+    400078: frame_001_Part_080
+    400080: Frame_Mover
+    400082: Frame_Skin
+    400084: //RootNode
+    400086: Plane_Part_031
+    400088: Plane_Part_032
+    400090: Plane_Part_033
+    400092: Plane_Part_034
+    400094: Plane_Part_035
+    400096: Plane_Part_036
+    400098: Plane_Part_037
+    400100: Plane_Part_038
+    400102: Plane_Part_039
+    400104: Plane_Part_040
+    400106: Plane_Part_041
+    400108: Plane_Part_042
+    400110: Plane_Part_043
+    400112: Plane_Part_044
+    400114: Plane_Part_045
+    400116: Plane_Part_046
+    400118: Plane_Part_047
+    400120: Plane_Part_048
+    400122: Plane_Part_049
+    400124: Plane_Part_050
+    400126: Plane_Part_051
+    400128: Plane_Part_052
+    400130: Plane_Part_053
+    400132: Plane_Part_054
+    400134: Plane_Part_055
+    400136: Plane_Part_056
+    400138: Plane_Part_057
+    400140: Plane_Part_058
+    400142: Plane_Part_059
+    400144: Plane_Part_060
+    2100000: FrameMat
+    2100002: GalleryScreenshot
+    4300000: Frame_Skin
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Frame_Skin
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FrameMat
+    second: {fileID: 2100000, guid: f242561bcc84c5f42ae4b4209893270b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GalleryScreenshot
+    second: {fileID: 2100000, guid: 57d4b9c9232441644a4024de6be3c74e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
