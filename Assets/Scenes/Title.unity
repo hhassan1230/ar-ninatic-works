@@ -690,8 +690,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 502.3}
-  m_SizeDelta: {x: 1100, y: 1150}
+  m_AnchoredPosition: {x: 0, y: -36}
+  m_SizeDelta: {x: 734.4, y: 1349}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1122208799
 MonoBehaviour:
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: e766ff5c8e53044f0b3c41e5e0418590, type: 3}
+  m_Texture: {fileID: 2800000, guid: de0097a973ccb4e78a1b0f21a5b6f714, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16293a692c4bb437c8d6b3aa309b91c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Main
+  levelName: Mainbx
   TitleText: {fileID: 254504661}
   ARInfoText: {fileID: 334228779}
 --- !u!4 &1144298172

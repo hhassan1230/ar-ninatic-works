@@ -234,12 +234,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f82ecc5afc3c4c2695d9cf37d46f25c, type: 3}
---- !u!1 &211105678 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4861586071263152474, guid: 5c5f54f5d8235468197e5cc9918c2ce8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1578635219}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &309211480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1007,8 @@ MonoBehaviour:
   flowerPlaced: 0
   portalSummoned: 0
   portalTrigger: {fileID: 1579405952}
-  statueMesh: {fileID: 211105678}
+  statueMesh: {fileID: 3519955848845581084, guid: 85863e14c153741f6ba7ffb2044aee62,
+    type: 3}
   rockGroup: {fileID: 1057484444}
   lightForest: {fileID: 0}
   keySpawnpoints:
