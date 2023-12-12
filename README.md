@@ -41,6 +41,8 @@
 
 - Platform: Mobile (iOS and Android)
 - Development Timeline: November to Mid December
+- Branch: `feature-bx`
+- Game Design Doc: https://docs.google.com/document/d/1xBrp7tJYU-Gjd5s6oLfV-ZKfGT8BUToTF__bL0RDlkw/ 
 
 ---
 
