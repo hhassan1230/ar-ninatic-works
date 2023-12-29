@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "R38M20HTACZ",
+    "m_SelectedDeviceId": "R5CRB1TK4AH",
     "m_SelectedPackage": {
-        "deviceId": "R38M20HTACZ",
+        "deviceId": "R5CRB1TK4AH",
         "name": "com.DoubleEye.arninaticworks",
-        "processId": 19163,
+        "processId": 29609,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,48 @@
             "deviceId": "R38M20HTACZ",
             "name": "com.DoubleEye.arninaticworks",
             "processId": 19163,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CRB1TK4AH",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 19524,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CRB1TK4AH",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 20742,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CRB1TK4AH",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 22585,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CRB1TK4AH",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 25673,
+            "exited": true
+        },
+        {
+            "deviceId": "R5CRB1TK4AH",
+            "name": "com.sec.android.app.launcher",
+            "processId": 3749,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CRB1TK4AH",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 27846,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CRB1TK4AH",
+            "name": "com.DoubleEye.arninaticworks",
+            "processId": 29609,
             "exited": false
         }
     ],

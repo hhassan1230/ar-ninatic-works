@@ -39,6 +39,7 @@ public class SceneManager : MonoBehaviour
     private GameObject flower;
     private AudioSource _audioSource;
     private Transform statuePos;
+    public Animation artFrameAnimation;
 
     public Transform[] keySpawnpoints;
     public Transform[] flowerSpawnpoints;
@@ -77,6 +78,7 @@ public class SceneManager : MonoBehaviour
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
 
         portalTrigger.SetActive(false);
+        statue.SetActive(false);
 
         //ARSessionFactory helps create our AR Session. Here, we're telling our 'ARSessionFactory' to listen to when a new ARSession is created, then call an 'OnSessionInitialized' function when we get notified of one being created
         ARSessionFactory.SessionInitialized += OnSessionInitialized;
@@ -162,6 +164,8 @@ public class SceneManager : MonoBehaviour
         statuePlaced = true;
 
         _ARMeshManager.UseInvisibleMaterial = true;
+
+        StartCoroutine(PlayArtFrameAnimation());
     }
 
     public void PlayItemPickUp()
@@ -235,6 +239,12 @@ public class SceneManager : MonoBehaviour
         // FADE OUT STARTS HERE!
         yield return new WaitForSeconds(2);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
+    }
+
+    IEnumerator PlayArtFrameAnimation()
+    {
+        yield return new WaitForSeconds(10f);
+        artFrameAnimation.Play();
     }
     
 }
